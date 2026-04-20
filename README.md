@@ -36,8 +36,7 @@ Create `.env.local` based on `.env.local.example`:
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
-NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
+NEXT_PUBLIC_SUPABASE_ANON_KEY=publishable-key
 ```
 
 ## Deployment
@@ -52,7 +51,7 @@ NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
 2. **Configure Settings**:
    | Setting | Value |
    |---------|-------|
-   | Project Name | `cabc-t-staging` (or your preferred name) |
+   | Project Name | `cabc-t-org-au` (or your preferred name) |
    | Framework Preset | **Next.js** ⬅️ Important! |
    | Root Directory | `./` |
 
@@ -61,16 +60,21 @@ NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
    | Key | Value |
    |-----|-------|
    | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
-   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon key |
-   | `NEXT_PUBLIC_SITE_URL` | (staging URL) |
-
+   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase Publishable key |
+   
 4. **Deploy**:
    - Click **Deploy** — Vercel will build and deploy
-   - Visit the staging URL (e.g., `https://cabc-t-staging.vercel.app`)
+   - Visit the staging URL (e.g., `https://cabc-t-org-au.vercel.app`)
 
+5. **Integration**:
+   - Once this is done, remove the variables from step 4
+   - Go back to Supabase project → Integrations → Vercel, connect and sync environment variables for Production
+   - In Vercel project → Settings → Environment Variables, verify all variables has a green icon (sync from supabase)
+
+   
 ### Staging URLs
 
-- Staging: `https://cabc-t-org-au-stagining.vercel.app`
+- Staging: `https://cabc-t-org-au.vercel.app`
 
 ### Supabase Configuration
 
@@ -122,9 +126,9 @@ The website requires a Supabase project for dynamic content (announcements and s
    ```
 
 4. **Get Credentials**:
-   - In Supabase dashboard → Project Settings → API
+   - In Supabase dashboard
    - Copy `Project URL` → `NEXT_PUBLIC_SUPABASE_URL`
-   - Copy `Project API keys` (anon public) → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - In Project Settings → API Keys, copy `Publishable key` → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
 ## What Has Been Done
 
