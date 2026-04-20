@@ -12,7 +12,6 @@ A modern Next.js 14 multilingual church website with tri-lingual support (Englis
 ### Installation
 
 ```bash
-cd work-006
 npm install
 ```
 
@@ -55,7 +54,7 @@ NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
    |---------|-------|
    | Project Name | `cabc-t-staging` (or your preferred name) |
    | Framework Preset | **Next.js** ⬅️ Important! |
-   | Root Directory | `work-006` |
+   | Root Directory | `./` |
 
 3. **Environment Variables**:
    Add these in Vercel project settings:
@@ -63,7 +62,7 @@ NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
    |-----|-------|
    | `NEXT_PUBLIC_SUPABASE_URL` | Your Supabase project URL |
    | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Your Supabase anon key |
-   | `NEXT_PUBLIC_SITE_URL` | `https://www.cabc-t.org.au` (or staging URL) |
+   | `NEXT_PUBLIC_SITE_URL` | (staging URL) |
 
 4. **Deploy**:
    - Click **Deploy** — Vercel will build and deploy
@@ -71,7 +70,6 @@ NEXT_PUBLIC_SITE_URL=https://www.cabc-t.org.au
 
 ### Staging URLs
 
-- Production: `https://www.cabc-t.org.au`
 - Staging: `https://cabc-t-org-au-stagining.vercel.app`
 
 ### Supabase Configuration
@@ -177,7 +175,6 @@ The website requires a Supabase project for dynamic content (announcements and s
 ### Directory Structure
 
 ```
-work-006/
 ├── src/
 │   ├── app/
 │   │   ├── [locale]/
@@ -304,9 +301,3 @@ CREATE TABLE announcements (
 | en | English | EN |
 | tc | Traditional Chinese | 繁 |
 | sc | Simplified Chinese | 简 |
-
-## References
-
-- Original Drupal site: `/snapshot-10042026/`
-- Base44 design reference: `/snapshot-11042026-base44/`
-- Previous work: `/work-002/`
