@@ -1,9 +1,14 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { type LanguageCode } from "@/lib/i18n";
 import { Calendar, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase } from 'lucide-react';
 
-const RegularEvents = () => {
+interface RegularEventsProps {
+  locale: LanguageCode;
+}
+
+export function RegularEvents({ locale }: RegularEventsProps) {
   const allEvents = [
     {
       title: "English Service",
