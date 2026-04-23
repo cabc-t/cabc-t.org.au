@@ -3,6 +3,7 @@ import { getTranslations } from "@/lib/translations";
 import { YOUTUBE_CHANNEL_URL } from "@/lib/constants";
 import { Announcements } from "@/components/Announcements";
 import { SermonsList } from "@/components/SermonsList";
+import RegularEvents from "@/components/RegularEvents";
 
 export default async function HomePage({
   params,
@@ -356,6 +357,13 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* Regular Events */}
+      <section id="regularEvents" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <RegularEvents locale={locale} />
+        </div>
+      </section>
+      
       {/* Recent Sermons */}
       <section id="sermons" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
