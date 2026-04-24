@@ -49,6 +49,7 @@ export const translations = {
     },
     children: {
       title: "Children's Ministry",
+      desc: "Nurturing Children's Ministry",
       program: "3L: Learn, Love and Live",
       learn: "LEARN: Know who God is",
       love: "LOVE: Love God with all our heart",
@@ -87,6 +88,7 @@ export const translations = {
       diveDeeperDesc: "Share life, study the Bible, and pray together in a supportive environment.",
       encourage: "Encourage One Another",
       encourageDesc: "Build lasting connections, extend a helping hand in times of need",
+      encourage2Desc: "Encourage one another in your spiritual journey",
     },
     about: {
       title: "Who Are We",
@@ -167,6 +169,7 @@ export const translations = {
     },
     children: {
       title: "兒童事工",
+      desc: "培育兒童事工",
       program: "3L：學習、關愛、實踐",
       learn: "學習：認識神是誰",
       love: "關愛：用全心去愛神",
@@ -205,6 +208,7 @@ export const translations = {
       diveDeeperDesc: "在支持的環境中分享生活、研究聖經、一起祈禱",
       encourage: "彼此鼓勵",
       encourageDesc: "建立持久的聯繫，在需要的時候伸出援手",
+      encourage2Desc: "在靈性旅程中彼此鼓勵",
     },
     about: {
       title: "我們是誰",
@@ -285,6 +289,7 @@ export const translations = {
     },
     children: {
       title: "儿童事工",
+      desc: "培育儿童事工",
       program: "3L：学习、关爱、实践",
       learn: "学习：认识神是谁",
       love: "关爱：用全心去爱神",
@@ -323,6 +328,7 @@ export const translations = {
       diveDeeperDesc: "在支持的环境中分享生活、研究圣经、一起祷告",
       encourage: "彼此鼓励",
       encourageDesc: "建立持久的联系，在需要的时候伸出援手",
+      encourage2Desc: "在灵性旅程中彼此鼓励",
     },
     about: {
       title: "我们是谁",

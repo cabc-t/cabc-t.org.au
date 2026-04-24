@@ -110,7 +110,7 @@ export default async function HomePage({
       <section id="children" className="py-24" style={{ backgroundColor: "rgba(247, 239, 250, 1)" }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h3 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-8">
-            {locale === "en" ? "Nurturing Children's Ministry" : locale === "tc" ? "培育兒童事工" : "培育儿童事工"}
+            {t.children.desc}
           </h3>
           
           <div className="grid lg:grid-cols-2 gap-12 items-start">
@@ -341,7 +341,7 @@ export default async function HomePage({
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-700 leading-relaxed">{locale === "en" ? "Build lasting connections, extend a helping hand in times of need" : locale === "tc" ? "建立持久的聯繫，在需要的時候伸出援手" : "建立持久的联系，在需要的时候伸出援手"}</p>
+                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.encourage2Desc}</p>
                   </div>
                 </div>
               </div>
