@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { type LanguageCode } from "@/lib/i18n";
-import { Calendar, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase } from 'lucide-react';
+import { Calendar, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy } from 'lucide-react';
 
 interface RegularEventsProps {
   locale: LanguageCode;
@@ -12,7 +12,7 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   const allEvents = [
     {
       title: "English Service",
-      day: "Sundays",
+      day: "Sunday",
       time: "9:00 AM",
       location: "Main Hall and Online",
       language: "English",
@@ -22,11 +22,21 @@ export function RegularEvents({ locale }: RegularEventsProps) {
     },
     {
       title: "Mandarin Service",
-      day: "Sundays",
+      day: "Sunday",
       time: "9:00 AM",
       location: "Side Hall and Online",
       language: "Mandarin",
       description: "Worship and teaching.",
+      icon: <Users className="w-5 h-5" />,
+      tag: "Service"
+    },
+    {
+      title: "Sunday Cantonese Service",
+      day: "Sunday",
+      time: "11:00 AM",
+      location: "Main Hall",
+      language: "Cantonese",
+      description: "Worship, teaching and Q&A.",
       icon: <Users className="w-5 h-5" />,
       tag: "Service"
     },
@@ -41,24 +51,104 @@ export function RegularEvents({ locale }: RegularEventsProps) {
       tag: "Service"
     },
     {
-      title: "Sunday Cantonese Service",
-      day: "Sundays",
-      time: "11:00 AM",
-      location: "Main Hall",
-      language: "Cantonese",
-      description: "Worship, teaching and Q&A.",
-      icon: <Users className="w-5 h-5" />,
-      tag: "Service"
+      title: "Children Sunday School",
+      day: "Sunday",
+      time: "9:00 AM",
+      location: "Manse",
+      language: "English",
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Children"
     },
     {
-      title: "Prayer Meeting",
-      day: "Wednesdays",
-      time: "8:00 PM",
-      location: "Online",
+      title: "Children Sunday School",
+      day: "Sunday",
+      time: "11:00 AM",
+      location: "Manse",
+      language: "English",
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Children"
+    },
+    {
+      title: "Youth Bible Study",
+      day: "Sunday",
+      time: "11:00 AM",
+      location: "Side Hall",
+      language: "English",
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Teen"
+    },
+    {
+      title: "Adult Sunday School",
+      day: "Sunday",
+      time: "11:00 AM",
+      location: "Rooms 5-7",
+      language: "Mandarin",
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Adult"
+    },
+    {
+      title: "Adult Sunday School",
+      day: "Saturday",
+      time: "1:00 PM",
+      location: "Rooms 5-7",
       language: "Cantonese",
-      description: "A focused time of intercession and community prayer.",
-      icon: <Clock className="w-5 h-5" />,
-      tag: "Prayer"
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Adult"
+    },
+    {
+      title: "Adult Sunday School",
+      day: "Sunday",
+      time: "1:30 PM",
+      location: "Rooms 5-7",
+      language: "Cantonese",
+      description: "",
+      icon: <School className="w-5 h-5" />,
+      tag: "Sunday School - Adult"
+    },
+    {
+      title: "Golden Age Fellowship",
+      day: "Saturday",
+      time: "2:00 PM",
+      location: "Side Hall",
+      language: "Cantonese",
+      description: "Serve, build and grow. Held monthly. Suitable for those who have retired, or are about to retire",
+      icon: <TreePalm className="w-5 h-5" />,
+      tag: "Fellowship"
+    },
+    {
+      title: "Women's DLT",
+      day: "Saturday",
+      time: "",
+      location: "Various",
+      language: "English",
+      description: "Join us for a relaxing bushwalk, craft, or conversation, followed by a time of reading the Bible and praying with one another. Held monthly.",
+      icon: <BookHeart className="w-5 h-5" />,
+      tag: "Fellowship"
+    },
+    {
+      title: "Men's group",
+      day: "Saturday",
+      time: "",
+      location: "Various",
+      language: "English",
+      description: "BLT - Burger Life Together. Held monthly.",
+      icon: <LifeBuoy className="w-5 h-5" />,
+      tag: "Fellowship"
+    },
+    {
+      title: "Life Sharing",
+      day: "Sunday",
+      time: "1:00 PM",
+      location: "Side Hall",
+      language: "Cantonese",
+      description: "A relaxed lunchtime gathering focused on authentic life sharing and peer connection. Held quarterly.",
+      icon: <CookingPot className="w-5 h-5" />,
+      tag: "Fellowship"
     },
     {
       title: "TYF",
@@ -68,17 +158,7 @@ export function RegularEvents({ locale }: RegularEventsProps) {
       language: "English",
       description: "High energy small groups for grades 6-12.",
       icon: <Coffee className="w-5 h-5" />,
-      tag: "Youth"
-    },
-    {
-      title: "PLUS",
-      day: "Wednesday",
-      time: "8:00 PM",
-      location: "Rooms 5-7",
-      language: "English",
-      description: "",
-      icon: <University className="w-5 h-5" />,
-      tag: "University/TAFE"
+      tag: "Fellowship"
     },
     {
       title: "CYF",
@@ -88,57 +168,77 @@ export function RegularEvents({ locale }: RegularEventsProps) {
       language: "Cantonese",
       description: "",
       icon: <Briefcase className="w-5 h-5" />,
-      tag: "Young worker"
+      tag: "Fellowship"
     },
     {
-      title: "Adult Cells",
-      day: "Various",
-      time: "Various Times",
-      location: "Various",
-      language: "English, Cantonese, Mandarin",
-      description: "Deep dive into a small group setting.",
-      icon: <BookOpen className="w-5 h-5" />,
-      tag: "Adults"
-    },
-    {
-      title: "Cells",
-      day: "Various",
-      time: "",
-      location: "Various",
-      language: "English",
-      description: "Deep dive into a small group setting.",
-      icon: <BookOpen className="w-5 h-5" />,
-      tag: "Cells"
-    },
-    {
-      title: "Adult Cells",
-      day: "Various",
-      time: "",
-      location: "Various",
+      title: "Leisure Centre",
+      day: "Thursday",
+      time: "10:00 AM",
+      location: "Side Hall",
       language: "Cantonese",
-      description: "Deep dive into a small group setting.",
-      icon: <BookOpen className="w-5 h-5" />,
-      tag: "Cells"
+      description: "A friendly, welcoming fellowship group for retired adults (Christians and friends) to gather, share, and learn.",
+      icon: <TreePalm className="w-5 h-5" />,
+      tag: "Fellowship"
     },
     {
-      title: "Young Family Cells",
-      day: "Various",
+      title: "Choir",
+      day: "Thursday",
       time: "",
-      location: "Various",
+      location: "Main Hall",
       language: "Cantonese",
-      description: "Small group for young Young Family family",
-      icon: <BookOpen className="w-5 h-5" />,
-      tag: "Cells"
+      description: "Lift your voice and join our vibrant community in praising through song.",
+      icon: <Piano className="w-5 h-5" />,
+      tag: "Fellowship"
     },
     {
-      title: "Adult Cells",
-      day: "Various",
-      time: "",
-      location: "Various",
+      title: "Prayer Meeting",
+      day: "Wednesday",
+      time: "8:00 PM",
+      location: "Online",
+      language: "Cantonese",
+      description: "A focused time of intercession and community prayer.",
+      icon: <Clock className="w-5 h-5" />,
+      tag: "Prayer"
+    },
+    {
+      title: "Prayer Meeting",
+      day: "Wednesday",
+      time: "8:00 PM",
+      location: "Online",
       language: "Mandarin",
+      description: "A focused time of intercession and community prayer. Held monthly.",
+      icon: <Clock className="w-5 h-5" />,
+      tag: "Prayer"
+    },
+    {
+      title: "PLUS",
+      day: "Wednesday",
+      time: "8:00 PM",
+      location: "Rooms 5-7",
+      language: "English",
+      description: "Supports students and apprentices through weekly Bible study, prayer, and community service. Join us as we share life together, grow in our faith, and learn to represent Jesus in our studies and training.",
+      icon: <University className="w-5 h-5" />,
+      tag: "Fellowship"
+    },
+    {
+      title: "Bible Reading Fellowship",
+      day: "Monday",
+      time: "8:00 PM",
+      location: "Online",
+      language: "Cantonese",
+      description: "Connect those who are interested to read the bible and fellowship in a relax environment. Held monthly.",
+      icon: <BookMarked className="w-5 h-5" />,
+      tag: "Fellowship"
+    },
+    {
+      title: "Small Groups",
+      day: "Various",
+      time: "",
+      location: "Various",
+      language: "Various",
       description: "Deep dive into a small group setting.",
       icon: <BookOpen className="w-5 h-5" />,
-      tag: "Cells"
+      tag: "Cell"
     },
   ];
 
@@ -177,9 +277,10 @@ export function RegularEvents({ locale }: RegularEventsProps) {
           <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
             
             {/* Day Filter */}
-            <div className="w-full">
+            <div className="w-full md:w-auto md:min-w-[200px]">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Filter by Day</label>
               <div className="flex flex-wrap gap-2">
+{/*
                 {days.map(day => (
                   <button
                     key={day}
@@ -193,12 +294,24 @@ export function RegularEvents({ locale }: RegularEventsProps) {
                     {day}
                   </button>
                 ))}
+*/}
+              <select 
+                value={selectedDay}
+                onChange={(e) => setSelectedDay(e.target.value)}
+                className="w-full p-2 rounded-lg border border-slate-200 bg-white text-slate-700 focus:ring-2 focus:ring-blue-500 outline-none"
+              >
+                {days.map(day => (
+                  <option key={day} value={day}>{day}</option>
+                ))}
+              </select>
+
               </div>
             </div>
 
             {/* Tag Filter */}
-            <div className="w-full md:w-auto md:min-w-[200px]">
+            <div className="w-full">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Category</label>
+{/*
               <select 
                 value={selectedTag}
                 onChange={(e) => setSelectedTag(e.target.value)}
@@ -208,11 +321,26 @@ export function RegularEvents({ locale }: RegularEventsProps) {
                   <option key={tag} value={tag}>{tag}</option>
                 ))}
               </select>
+*/}
+                {tags.map(tag => (
+                  <button
+                    key={tag}
+                    onClick={() => setSelectedTag(tag)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      selectedTag === tag 
+                      ? "bg-blue-600 text-white shadow-md" 
+                      : "bg-white text-slate-600 hover:bg-slate-200 border border-slate-200"
+                    }`}
+                  >
+                    {tag}
+                  </button>
+                ))}
             </div>
 
             {/* Language Filter */}
             <div className="w-full md:w-auto md:min-w-[200px]">
               <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Language</label>
+{/*
               <select 
                 value={selectedLanguage}
                 onChange={(e) => setSelectedLanguage(e.target.value)}
@@ -222,6 +350,20 @@ export function RegularEvents({ locale }: RegularEventsProps) {
                   <option key={language} value={language}>{language}</option>
                 ))}
               </select>
+*/}
+                {languages.map(language => (
+                  <button
+                    key={language}
+                    onClick={() => setSelectedLanguage(language)}
+                    className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                      selectedLanguage === language 
+                      ? "bg-blue-600 text-white shadow-md" 
+                      : "bg-white text-slate-600 hover:bg-slate-200 border border-slate-200"
+                    }`}
+                  >
+                    {language}
+                  </button>
+                ))}
             </div>
           </div>
 
