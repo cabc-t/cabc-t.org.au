@@ -50,7 +50,19 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   
   // Derived Data (Unique Days/Tags for the UI)
   const days = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.day_text)))], [allEvents]);
-  const tags = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.tag_key)))], [allEvents]);
+  
+  const tags = useMemo(() => {
+  // Create an array of { key, label }
+  const uniqueTags = allEvents.reduce((acc, event) => {
+    if (!acc.find(t => t.key === event.tag_key)) {
+      acc.push({ key: event.tag_key, label: event.tag_label });
+    }
+    return acc;
+  }, [] as { key: string; label: string }[]);
+
+  return [{ key: "All", label: "All" }, ...uniqueTags];
+}, [allEvents]);
+
   const languages = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.language_label)))], [allEvents]);
   
   useEffect(() => {
@@ -182,15 +194,15 @@ export function RegularEvents({ locale }: RegularEventsProps) {
 */}
                 {tags.map(tag => (
                   <button
-                    key={tag}
-                    onClick={() => setSelectedTag(tag)}
+                    key={tag.key}
+                    onClick={() => setSelectedTag(tag.key)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
                       selectedTag === tag 
                       ? "bg-blue-600 text-white shadow-md" 
                       : "bg-white text-slate-600 hover:bg-slate-200 border border-slate-200"
                     }`}
                   >
-                    {tag}
+                    {tag.label}
                   </button>
                 ))}
             </div>
