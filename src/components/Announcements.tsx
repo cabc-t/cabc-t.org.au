@@ -154,7 +154,7 @@ export function Announcements({ locale, limit = 5, showTitle = false }: Announce
                       </div>
                       <div className="relative p-3">
                         <span className="text-white/90 text-xs drop-shadow-sm">
-                          {format(new Date(announcement.created_at), "MMM d, yyyy")}
+                          {format(new Date(announcement.start_date), "MMM d, yyyy")}
                         </span>
                       </div>
                     </div>
@@ -164,7 +164,7 @@ export function Announcements({ locale, limit = 5, showTitle = false }: Announce
                         {announcement.title}
                       </h3>
                       <span className="text-white/80 text-xs">
-                        {format(new Date(announcement.created_at), "MMM d, yyyy")}
+                        {format(new Date(announcement.start_date), "MMM d, yyyy")}
                       </span>
                     </>
                   )}
@@ -217,7 +217,7 @@ export function Announcements({ locale, limit = 5, showTitle = false }: Announce
                 </button>
               </div>
               <p className="text-white/80 mt-2">
-                {format(new Date(selectedAnnouncement.created_at), "MMMM d, yyyy")}
+                {format(new Date(selectedAnnouncement.start_date), "MMMM d, yyyy")}
               </p>
             </div>
             <div className="p-6 overflow-y-auto max-h-[50vh]">
