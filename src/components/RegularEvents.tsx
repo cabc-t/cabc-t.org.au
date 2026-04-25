@@ -25,12 +25,13 @@ const IconMap: Record<string, React.ReactNode> = {
 interface Event {
   id: string;
   title: string;
-  day: string;
-  time: string;
+  day_text: string;
+  time_text: string;
   location: string;
-  language: string;
+  language_label: string;
   description: string;
-  tag: string;
+  tag_key: string;
+  tag_label: string;
   icon_name: string;
 }
 
@@ -198,7 +199,7 @@ export function RegularEvents({ locale }: RegularEventsProps) {
                     key={tag.key}
                     onClick={() => setSelectedTag(tag.key)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      selectedTag === tag 
+                      selectedTag === tag.key
                       ? "bg-blue-600 text-white shadow-md" 
                       : "bg-white text-slate-600 hover:bg-slate-200 border border-slate-200"
                     }`}
