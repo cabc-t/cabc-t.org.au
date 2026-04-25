@@ -238,9 +238,9 @@ export function RegularEvents({ locale }: RegularEventsProps) {
           </div>
 
           {/* Active Filter Clear */}
-          {(selectedDay !== "All" || selectedTag !== "All") && (
+          {(selectedDay !== "All" || selectedTag !== "All" || selectedLanguage !== "All") && (
             <button 
-              onClick={() => { setSelectedDay("All"); setSelectedTag("All"); }}
+              onClick={() => { setSelectedDay("All"); setSelectedTag("All"); setSelectedLanguage("All"); }}
               className="mt-4 flex items-center text-xs text-blue-600 font-semibold hover:text-blue-800"
             >
               <X className="w-3 h-3 mr-1" /> Reset Filters
