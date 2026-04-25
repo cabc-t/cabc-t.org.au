@@ -3,7 +3,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { createClient } from "@/lib/supabase/client";
 import { type LanguageCode } from "@/lib/i18n";
-import { Calendar, Loader2, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound } from 'lucide-react';
+import { Calendar, Loader2, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
 
 const IconMap: Record<string, React.ReactNode> = {
   Users: <Users className="w-5 h-5" />,
@@ -20,6 +20,7 @@ const IconMap: Record<string, React.ReactNode> = {
   Clock: <Clock className="w-5 h-5" />,
   University: <University className="w-5 h-5" />,
   FlaskRound: <FlaskRound className="w-5 h-5" />,
+  House: <House className="w-5 h-5" />,
 };
 
 interface Event {
