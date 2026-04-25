@@ -1,265 +1,123 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { createClient } from "@/lib/supabase/client";
 import { type LanguageCode } from "@/lib/i18n";
-import { Calendar, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy } from 'lucide-react';
+import { Calendar, Loader2, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy } from 'lucide-react';
+
+const IconMap: Record<string, React.ReactNode> = {
+  Users: <Users className="w-5 h-5" />,
+  BookOpen: <BookOpen className="w-5 h-5" />,
+  Languages: <Languages className="w-5 h-5" />,
+  School: <School className="w-5 h-5" />,
+  TreePalm: <TreePalm className="w-5 h-5" />,
+  BookHeart: <BookHeart className="w-5 h-5" />,
+  LifeBuoy: <LifeBuoy className="w-5 h-5" />,
+  CookingPot: <CookingPot className="w-5 h-5" />,
+  Coffee: <Coffee className="w-5 h-5" />,
+  Briefcase: <Briefcase className="w-5 h-5" />,
+  Piano: <Piano className="w-5 h-5" />,
+  Clock: <Clock className="w-5 h-5" />,
+  University: <University className="w-5 h-5" />,
+};
+
+interface Event {
+  id: string;
+  title: string;
+  day: string;
+  time: string;
+  location: string;
+  language: string;
+  description: string;
+  tag: string;
+  icon_name: string;
+}
 
 interface RegularEventsProps {
   locale: LanguageCode;
 }
 
 export function RegularEvents({ locale }: RegularEventsProps) {
-  const allEvents = [
-    {
-      title: "English Service",
-      day: "Sunday",
-      time: "9:00 AM",
-      location: "Main Hall and Online",
-      language: "English",
-      description: "Worship, prayer and teaching.",
-      icon: <Users className="w-5 h-5" />,
-      tag: "Service"
-    },
-    {
-      title: "Mandarin Service",
-      day: "Sunday",
-      time: "9:00 AM",
-      location: "Side Hall and Online",
-      language: "Mandarin",
-      description: "Worship and teaching.",
-      icon: <Users className="w-5 h-5" />,
-      tag: "Service"
-    },
-    {
-      title: "Sunday Cantonese Service",
-      day: "Sunday",
-      time: "11:00 AM",
-      location: "Main Hall",
-      language: "Cantonese",
-      description: "Worship, teaching and Q&A.",
-      icon: <Users className="w-5 h-5" />,
-      tag: "Service"
-    },
-    {
-      title: "Saturday Cantonese Service",
-      day: "Saturday",
-      time: "10:00 AM",
-      location: "Main Hall",
-      language: "Cantonese",
-      description: "Worship, teaching and group discussion.",
-      icon: <Users className="w-5 h-5" />,
-      tag: "Service"
-    },
-    {
-      title: "Children Sunday School",
-      day: "Sunday",
-      time: "9:00 AM",
-      location: "Manse",
-      language: "English",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Children"
-    },
-    {
-      title: "Children Sunday School",
-      day: "Sunday",
-      time: "11:00 AM",
-      location: "Manse",
-      language: "English",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Children"
-    },
-    {
-      title: "Youth Bible Study",
-      day: "Sunday",
-      time: "11:00 AM",
-      location: "Side Hall",
-      language: "English",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Teen"
-    },
-    {
-      title: "Adult Sunday School",
-      day: "Sunday",
-      time: "11:00 AM",
-      location: "Rooms 5-7",
-      language: "Mandarin",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Adult"
-    },
-    {
-      title: "Adult Sunday School",
-      day: "Saturday",
-      time: "1:00 PM",
-      location: "Rooms 5-7",
-      language: "Cantonese",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Adult"
-    },
-    {
-      title: "Adult Sunday School",
-      day: "Sunday",
-      time: "1:30 PM",
-      location: "Rooms 5-7",
-      language: "Cantonese",
-      description: "",
-      icon: <School className="w-5 h-5" />,
-      tag: "Sunday School - Adult"
-    },
-    {
-      title: "Golden Age Fellowship",
-      day: "Saturday",
-      time: "2:00 PM",
-      location: "Side Hall",
-      language: "Cantonese",
-      description: "Serve, build and grow. Held monthly. Suitable for those who have retired, or are about to retire",
-      icon: <TreePalm className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Women's DLT",
-      day: "Saturday",
-      time: "",
-      location: "Various",
-      language: "English",
-      description: "Join us for a relaxing bushwalk, craft, or conversation, followed by a time of reading the Bible and praying with one another. Held monthly.",
-      icon: <BookHeart className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Men's group",
-      day: "Saturday",
-      time: "",
-      location: "Various",
-      language: "English",
-      description: "BLT - Burger Life Together. Held monthly.",
-      icon: <LifeBuoy className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Life Sharing",
-      day: "Sunday",
-      time: "1:00 PM",
-      location: "Side Hall",
-      language: "Cantonese",
-      description: "A relaxed lunchtime gathering focused on authentic life sharing and peer connection. Held quarterly.",
-      icon: <CookingPot className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "TYF",
-      day: "Fridays",
-      time: "7:30 PM",
-      location: "Side Hall",
-      language: "English",
-      description: "High energy small groups for grades 6-12.",
-      icon: <Coffee className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "CYF",
-      day: "Fridays",
-      time: "8:00 PM",
-      location: "Main Hall",
-      language: "Cantonese",
-      description: "",
-      icon: <Briefcase className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Leisure Centre",
-      day: "Thursday",
-      time: "10:00 AM",
-      location: "Side Hall",
-      language: "Cantonese",
-      description: "A friendly, welcoming fellowship group for retired adults (Christians and friends) to gather, share, and learn.",
-      icon: <TreePalm className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Choir",
-      day: "Thursday",
-      time: "",
-      location: "Main Hall",
-      language: "Cantonese",
-      description: "Lift your voice and join our vibrant community in praising through song.",
-      icon: <Piano className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Prayer Meeting",
-      day: "Wednesday",
-      time: "8:00 PM",
-      location: "Online",
-      language: "Cantonese",
-      description: "A focused time of intercession and community prayer.",
-      icon: <Clock className="w-5 h-5" />,
-      tag: "Prayer"
-    },
-    {
-      title: "Prayer Meeting",
-      day: "Wednesday",
-      time: "8:00 PM",
-      location: "Online",
-      language: "Mandarin",
-      description: "A focused time of intercession and community prayer. Held monthly.",
-      icon: <Clock className="w-5 h-5" />,
-      tag: "Prayer"
-    },
-    {
-      title: "PLUS",
-      day: "Wednesday",
-      time: "8:00 PM",
-      location: "Rooms 5-7",
-      language: "English",
-      description: "Supports students and apprentices through weekly Bible study, prayer, and community service. Join us as we share life together, grow in our faith, and learn to represent Jesus in our studies and training.",
-      icon: <University className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Bible Reading Fellowship",
-      day: "Monday",
-      time: "8:00 PM",
-      location: "Online",
-      language: "Cantonese",
-      description: "Connect those who are interested to read the bible and fellowship in a relax environment. Held monthly.",
-      icon: <BookMarked className="w-5 h-5" />,
-      tag: "Fellowship"
-    },
-    {
-      title: "Small Groups",
-      day: "Various",
-      time: "",
-      location: "Various",
-      language: "Various",
-      description: "Deep dive into a small group setting.",
-      icon: <BookOpen className="w-5 h-5" />,
-      tag: "Cell"
-    },
-  ];
-
+  const supabase = createClient();
+  
+  const [allEvents, setAllEvents] = useState<Event[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
   // State for Filters
   const [selectedDay, setSelectedDay] = useState("All");
   const [selectedTag, setSelectedTag] = useState("All");
   const [selectedLanguage, setSelectedLanguage] = useState("All");
   
   // Derived Data (Unique Days/Tags for the UI)
-  const days = ["All", ...Array.from(new Set(allEvents.map(e => e.day)))];
-  const tags = ["All", ...Array.from(new Set(allEvents.map(e => e.tag)))];
-  const languages = ["All", ...Array.from(new Set(allEvents.map(e => e.language)))];
+  const days = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.day_text)))], [allEvents]);
+  const tags = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.tag_key)))], [allEvents]);
+  const languages = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.language_label)))], [allEvents]);
+  
+  useEffect(() => {
+    async function fetchEvents() {
+      setIsLoading(true);
+      try {
+        // 1. Fetch from base table and 'inner join' the translations
+        // We use !inner to ensure we ONLY get events that have a translation for the current locale
+        const { data, error } = await supabase
+          .from('regular_events')
+          .select(`
+            id, icon_name, tag_key,
+            event_translations!inner (
+              title, day_text, time_text, location, description, language_label, tag_label
+            )
+          `)
+          .eq('event_translations.locale', locale);
+
+        if (error) {
+          console.error('Supabase Error:', error.message);
+          return;
+        }
+        
+        // 2. Flatten the data
+        // Supabase returns translations as an array: event_translations: [{...}]
+        // We map it so the component sees a single flat object.
+        const formattedEvents = data.map((event) => {
+          // Grab the first (and only) translation object for this locale
+          const translation = event.event_translations[0];
+
+          return {
+            id: event.id,
+            icon_name: event.icon_name,
+            tag_key: event.tag_key,
+            // Spread the translated fields into the top level
+            ...translation 
+          };
+        });
+
+        setAllEvents(formattedEvents);
+      } catch (err) {
+        console.error('Error:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchEvents();
+  }, [supabase, locale]); // Refetch if locale changes!
   
   const filteredEvents = useMemo(() => {
     return allEvents.filter(event => {
-      const dayMatch = selectedDay === "All" || event.day === selectedDay;
-      const tagMatch = selectedTag === "All" || event.tag === selectedTag;
-      const languageMatch = selectedLanguage === "All" || event.language === selectedLanguage;
+      const dayMatch = selectedDay === "All" || event.day_text === selectedDay;
+      const tagMatch = selectedTag === "All" || event.tag_key === selectedTag;
+      const languageMatch = selectedLanguage === "All" || event.language_label === selectedLanguage;
       return dayMatch && tagMatch && languageMatch;
     });
-  }, [selectedDay, selectedTag, selectedLanguage]);
+  }, [allEvents, selectedDay, selectedTag, selectedLanguage]);
+  
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center py-20 text-slate-400">
+        <Loader2 className="w-8 h-8 animate-spin mb-4" />
+        <p>Loading events...</p>
+      </div>
+    );
+  }
   
   return (
     <section className="py-16 bg-white min-h-screen">
@@ -381,25 +239,25 @@ export function RegularEvents({ locale }: RegularEventsProps) {
         {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredEvents.length > 0 ? (
-            filteredEvents.map((event, index) => (
-              <div key={index} className="group bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-lg transition-all">
+            filteredEvents.map((event) => (
+              <div key={event.id} className="group bg-white rounded-xl border border-slate-200 p-5 hover:border-blue-300 hover:shadow-lg transition-all">
                 <div className="flex justify-between items-start mb-4">
                   <div className="p-2 bg-slate-100 rounded-lg group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                    {event.icon}
+                    {IconMap[event.icon_name] || <Users className="w-5 h-5" />}
                   </div>
                   <span className="text-[10px] font-bold uppercase py-1 px-2 bg-slate-100 text-slate-500 rounded">
-                    {event.tag}
+                    {event.tag_label} {/* Translated Tag */}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-slate-900">{event.title}</h3>
                 <div className="mt-3 space-y-2">
                   <div className="flex items-center text-sm text-slate-600">
                     <Calendar className="w-4 h-4 mr-2 text-slate-400" />
-                    {event.day} {event.time}
+                    {event.day_text} {event.time_text}
                   </div>
                   <div className="flex items-center text-sm text-slate-600">
                     <Languages className="w-4 h-4 mr-2 text-slate-400" />
-                    {event.language}
+                    {event.language_label} {/* Translated Language Name */}
                   </div>
                   <div className="flex items-center text-sm text-slate-600">
                     <MapPin className="w-4 h-4 mr-2 text-slate-400" />
