@@ -107,6 +107,10 @@ export const translations = {
       noNews: "No news at this time.",
       viewAll: "View All",
     },
+    regularEvents: {
+      title: "All regular gatherings in a glance",
+      desc: "Whether you're looking for a place to worship, bible study, or connect, there is a place for you here every week.",
+    },
     sermons: {
       title: "Sermons",
       watchOnYouTube: "Watch on YouTube",
@@ -228,6 +232,10 @@ export const translations = {
       noNews: "暫時沒有資訊。",
       viewAll: "查看全部",
     },
+    regularEvents: {
+      title: "定期活動一覽",
+      desc: "無論您是想找地方敬拜、學習聖經或與人交流，這裡都有適合您的活動。",
+    },
     sermons: {
       title: "講道",
       watchOnYouTube: "在YouTube觀看",
@@ -348,6 +356,10 @@ export const translations = {
       readMore: "阅读更多",
       noNews: "暂时没有资讯。",
       viewAll: "查看全部",
+    },
+    regularEvents: {
+      title: "定期活动一览",
+      desc: "无论您是想找地方敬拜、学习圣经或与人交流，这里都有适合您的活动。",
     },
     sermons: {
       title: "讲道",

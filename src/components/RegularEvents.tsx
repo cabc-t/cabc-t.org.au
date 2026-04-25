@@ -4,6 +4,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { createClient } from "@/lib/supabase/client";
 import { type LanguageCode } from "@/lib/i18n";
 import { Calendar, Loader2, Clock, MapPin, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
+import { getTranslations } from "@/lib/translations";
 
 const IconMap: Record<string, React.ReactNode> = {
   Users: <Users className="w-5 h-5" />,
@@ -41,6 +42,8 @@ interface RegularEventsProps {
 }
 
 export function RegularEvents({ locale }: RegularEventsProps) {
+  const t = getTranslations(locale);
+
   const supabase = createClient();
   
   const [allEvents, setAllEvents] = useState<Event[]>([]);
@@ -140,9 +143,8 @@ export function RegularEvents({ locale }: RegularEventsProps) {
         
         {/* Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-slate-900">All regular gatherings in a glance</h2>
-          <p className="text-slate-500 mt-2">Whether you're looking for a place to worship, bible study, or connect, 
-            there is a place for you here every week.</p>
+          <h2 className="text-3xl font-bold text-slate-900">{t.regularEvents.title}</h2>
+          <p className="text-slate-500 mt-2">{t.regularEvents.desc}</p>
         </div>
 
         {/* Filter Controls */}
