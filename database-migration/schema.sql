@@ -151,11 +151,11 @@ create table public.regular_events (
 create table public.event_translations (
   id uuid default gen_random_uuid() primary key,
   event_id uuid references public.regular_events(id) on delete cascade,
-  locale text not null, -- 'en', 'zh', 'hk', etc.
+  locale VARCHAR(2) NOT NULL DEFAULT 'en' CHECK (language IN ('en', 'tc', 'sc')),
   title text not null,
-  day_text text not null,      -- e.g., 'Sunday' or '星期日'
-  time_text text not null,     -- e.g., '9:00 AM' or '上午 9:00'
-  location text not null,
+  day_text text,      -- e.g., 'Sunday' or '星期日'
+  time_text text,     -- e.g., '9:00 AM' or '上午 9:00'
+  location text,
   description text,
   language_label text,        -- e.g., 'English' or '廣東話'
   tag_label text,             -- e.g., 'Service' or '崇拜'. Used for reading, UI Display
