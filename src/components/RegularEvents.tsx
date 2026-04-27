@@ -90,16 +90,16 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   }, [allEvents, locale]);
   
   const tags = useMemo(() => {
-  // Create an array of { key, label }
-  const uniqueTags = allEvents.reduce((acc, event) => {
-    if (!acc.find(t => t.key === event.tag_key)) {
-      acc.push({ key: event.tag_key, label: event.tag_label });
-    }
-    return acc;
-  }, [] as { key: string; label: string }[]);
-
-  return [{ key: "All", label: "All" }, ...uniqueTags];
-}, [allEvents]);
+    // Create an array of { key, label }
+    const uniqueTags = allEvents.reduce((acc, event) => {
+      if (!acc.find(t => t.key === event.tag_key)) {
+        acc.push({ key: event.tag_key, label: event.tag_label });
+      }
+      return acc;
+    }, [] as { key: string; label: string }[]);
+  
+    return [{ key: "All", label: "All" }, ...uniqueTags];
+  }, [allEvents]);
 
   const languages = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.language_label)))], [allEvents]);
   
