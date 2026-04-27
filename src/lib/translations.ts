@@ -3,6 +3,10 @@ import { LanguageCode } from "./i18n";
 export const translations = {
   en: {
     siteName: "CABC Thornleigh",
+    filters: {
+      all: "All",
+      day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -128,6 +132,10 @@ export const translations = {
   },
   tc: {
     siteName: "華澳浸信會展信堂",
+    filters: {
+      all: "全部",
+      day: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    },
     nav: {
       home: "主頁",
       about: "關於",
@@ -253,6 +261,10 @@ export const translations = {
   },
   sc: {
     siteName: "华澳浸信会展信堂",
+    filters: {
+      all: "全部",
+      day: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    },
     nav: {
       home: "首页",
       about: "关于",

@@ -53,21 +53,16 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   const [selectedDay, setSelectedDay] = useState("All");
   const [selectedTag, setSelectedTag] = useState("All");
   const [selectedLanguage, setSelectedLanguage] = useState("All");
+
+  const allLabel = t.filters.all;
   
   // Derived Data (Unique Days/Tags for the UI)
   const days = useMemo(() => {
     // 1. Get unique day_text values, handling null/undefined
     const uniqueDays = Array.from(new Set(allEvents.map(e => e.day_text || "")));
   
-    // 2. Define chronological order for each supported language
-    const dayOrder: Record<string, string[]> = {
-      en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      tc: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
-      sc: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
-    };
-  
-    // Get the order list for the current locale (fallback to English)
-    const currentOrder = dayOrder[locale] || dayOrder.en;
+    // Get the order list for the current locale
+    const currentOrder = t.filters.day;
   
     // 3. Sort the unique days
     const sortedDays = uniqueDays.sort((a, b) => {
@@ -86,7 +81,7 @@ export function RegularEvents({ locale }: RegularEventsProps) {
     });
   
     // 4. Return with "All" at the top
-    return ["All", ...sortedDays];
+    return [allLabel, ...sortedDays];
   }, [allEvents, locale]);
   
   const tags = useMemo(() => {
@@ -98,11 +93,20 @@ export function RegularEvents({ locale }: RegularEventsProps) {
       return acc;
     }, [] as { key: string; label: string }[]);
   
-    return [{ key: "All", label: "All" }, ...uniqueTags];
+    return [{ key: "All", label: allLabel }, ...uniqueTags];
   }, [allEvents]);
 
-  const languages = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.language_label)))], [allEvents]);
-  
+  const languages = useMemo(() => {
+    // Get unique language labels from your events
+    const uniqueLanguages = Array.from(new Set(allEvents.map(e => e.language_label)));
+    
+    // Create an array of objects to keep track of what is "All" vs a specific language
+    return [
+      { key: "All", label: allLabel }, 
+      ...uniqueLanguages.map(lang => ({ key: lang, label: lang }))
+    ];
+  }, [allEvents, allLabel]);
+ 
   useEffect(() => {
     async function fetchEvents() {
       setIsLoading(true);
@@ -258,17 +262,17 @@ export function RegularEvents({ locale }: RegularEventsProps) {
                 ))}
               </select>
 */}
-                {languages.map(language => (
+                {languages.map(lang => (
                   <button
-                    key={language}
-                    onClick={() => setSelectedLanguage(language)}
+                    key={lang.key}
+                    onClick={() => setSelectedLanguage(lang.key)}
                     className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
-                      selectedLanguage === language 
+                      selectedLanguage === lang.key 
                       ? "bg-blue-600 text-white shadow-md" 
                       : "bg-white text-slate-600 hover:bg-slate-200 border border-slate-200"
                     }`}
                   >
-                    {language}
+                    {lang.label}
                   </button>
                 ))}
             </div>
