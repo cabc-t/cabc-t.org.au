@@ -174,7 +174,6 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   }
   
   return (
-    <section className="py-16 bg-white min-h-screen">
       <div className="max-w-6xl mx-auto px-4">
         
         {/* Header */}
@@ -336,7 +335,6 @@ export function RegularEvents({ locale }: RegularEventsProps) {
           )}
         </div>
       </div>
-    </section>
   );
 };
 
