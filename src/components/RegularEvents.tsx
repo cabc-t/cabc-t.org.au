@@ -55,7 +55,39 @@ export function RegularEvents({ locale }: RegularEventsProps) {
   const [selectedLanguage, setSelectedLanguage] = useState("All");
   
   // Derived Data (Unique Days/Tags for the UI)
-  const days = useMemo(() => ["All", ...Array.from(new Set(allEvents.map(e => e.day_text)))], [allEvents]);
+  const days = useMemo(() => {
+    // 1. Get unique day_text values, handling null/undefined
+    const uniqueDays = Array.from(new Set(allEvents.map(e => e.day_text || "")));
+  
+    // 2. Define chronological order for each supported language
+    const dayOrder: Record<string, string[]> = {
+      en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      tc: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+      sc: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+    };
+  
+    // Get the order list for the current locale (fallback to English)
+    const currentOrder = dayOrder[locale] || dayOrder.en;
+  
+    // 3. Sort the unique days
+    const sortedDays = uniqueDays.sort((a, b) => {
+      // Treat empty/null as the absolute last item
+      if (!a || a === "") return 1;
+      if (!b || b === "") return -1;
+  
+      const indexA = currentOrder.indexOf(a);
+      const indexB = currentOrder.indexOf(b);
+  
+      // If a day isn't in our list (like "No set day"), put it at the end
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+  
+      return indexA - indexB;
+    });
+  
+    // 4. Return with "All" at the top
+    return ["All", ...sortedDays];
+  }, [allEvents, locale]);
   
   const tags = useMemo(() => {
   // Create an array of { key, label }
