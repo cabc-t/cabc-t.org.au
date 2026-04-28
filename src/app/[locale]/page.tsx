@@ -76,11 +76,13 @@ export default async function HomePage({
       </section>
       
       {/* Recent Sermons */}
+      {/*
       <section id="sermons" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SermonsList locale={locale} limit={6} showTitle={true} horizontalScroll={true} />
         </div>
       </section>
+      */}
 
       {/* About */}
       <section id="about" className="py-16 bg-white">
