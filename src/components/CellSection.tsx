@@ -53,7 +53,7 @@ export function ServiceSection({ locale }) {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
               <img 
-                src="https://www.cabc-t.org.au/sites/default/files/styles/pb_original_size/public/2024-11/nemo-L_tUFRgsTm4-unsplash.jpg.webp?itok=MmD9qmgq" 
+                src="/images/nemo-unsplash.jpg.webp" 
                 alt="Small Groups" 
                 className="w-full h-80 lg:h-[420px] object-cover"
               />
