@@ -1,6 +1,7 @@
+import { type LanguageCode, type LocaleProps } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 
-export function ServiceSection({ locale }) {
+export function ServiceSection({ locale }: LocaleProps ) {
   const t = getTranslations(locale);
 
   return (

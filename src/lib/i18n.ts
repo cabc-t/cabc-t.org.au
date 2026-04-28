@@ -12,3 +12,9 @@ export const routing = {
   locales: ["en", "tc", "sc"] as const,
   defaultLocale: "en",
 };
+
+export interface LocaleProps {
+  locale: LanguageCode;
+}
+
+
