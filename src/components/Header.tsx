@@ -26,6 +26,7 @@ export function Header() {
     { href: `/${locale}#cells`, label: t.nav.cells },
     { href: `/${locale}#regularEvents`, label: t.nav.regularEvents },
     ...(isSermonsPage ? [] : [{ href: `/${locale}#sermons`, label: t.nav.sermons }]),
+    { href: `/${locale}/about/pastors`, label: t.nav.pastors },
     { href: `/${locale}#about`, label: t.nav.about },
   ];
 

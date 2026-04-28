@@ -20,6 +20,7 @@ export const translations = {
       safeChurch: "Safe Church",
       privacyPolicy: "Privacy Policy",
       contact: "Contact",
+      pastors: "Pastors",
     },
     hero: {
       welcome: "Welcome to CABC Thornleigh",
@@ -99,6 +100,11 @@ export const translations = {
       title: "Who Are We",
       history: `Chinese and Australian Baptist Church - Thornleigh was founded in July 1989. Since 1984, Rev. Joseph Fung responded to God's guidance, and, together with Rev. Burman of Eastwood Baptist Church began to reach out to the Cantonese speaking Chinese migrant community, resulting in the establishment of CABC Thornleigh. All this time the Church has upheld its foundation – the Word of God. The ministry of our church has always centred on the Word of God – our Sunday worship, our all-age Sunday school, our cell groups and fellowship groups all built upon this foundation; but from the beginning, never forgetting the Great Commission. Right from the beginning, CABC-Thornleigh already established a mission fund, supporting local and overseas missions. Here we see a beautiful picture, the Australian and Chinese pastors and brothers and sisters then, in responding to the gospel need of the community, joined in local mission, establishing the church, spreading the Word of God, and supporting overseas missions. Just as the Lord Jesus, before his ascension, instructed the apostles and said, "…You will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth" (Acts 1:8). We thank God for His provision throughout the years, for establishing CABC-Thornleigh this big spiritual family to proclaim Christ and witness the power of His Gospel.`,
     },
+    pastors: {
+      title: "Our Pastors",
+      biography: "Biography",
+      comingSoon: "Biography coming soon",
+    },
     contact: {
       title: "Contact",
       address: "235 Pennant Hills Road, Thornleigh NSW 2120",
@@ -149,6 +155,7 @@ export const translations = {
       safeChurch: "安全教會",
       privacyPolicy: "私隱政策",
       contact: "聯絡",
+      pastors: "牧者",
     },
     hero: {
       welcome: "歡迎來到華澳浸信會展信堂",
@@ -228,6 +235,11 @@ export const translations = {
       title: "我們是誰",
       history: `華澳浸信會展信堂於一九八九年七月成立。自一九八四年起，馮牧師回應神的帶領，與東區浸信會的Burman牧師一同向說粵語的華人移民社群展開福音工作，促成了華澳浸信會展信堂的建立。教會一直堅守其根基——神的話語。我們的事工一直以神的話語為中心——主日崇拜、主日學、細胞小組和團契都以此為根基；同時亦不忘記大使命。自成立之初，華澳浸信會展信堂已設立宣教基金，支持本地和海外宣教工作。我們看到一幅美麗的圖畫——當時的澳洲和華人牧師及弟兄姊妹回應社區的福音需要，參與本地宣教，建立教會，傳揚神的話語，支持海外宣教。正如主耶穌升天前對使徒說：「你們將要在耶路撒冷、猶太全地和撒瑪利亞，直到地極，作我的見證」（使徒行傳1:8）。感謝神多年來的供應，建立了華澳浸信會展信堂這個屬靈大家庭來宣揚基督並見證祂福音的大能。`,
     },
+    pastors: {
+      title: "我們的牧者",
+      biography: "個人簡介",
+      comingSoon: "個人簡介即將刊登",
+    },
     contact: {
       title: "聯絡",
       address: "235 Pennant Hills Road, Thornleigh NSW 2120",
@@ -278,6 +290,7 @@ export const translations = {
       safeChurch: "安全教会",
       privacyPolicy: "隐私政策",
       contact: "联络",
+      pastors: "牧者",
     },
     hero: {
       welcome: "欢迎来到华澳浸信会展信堂",
@@ -356,6 +369,11 @@ export const translations = {
     about: {
       title: "我们是谁",
       history: `华澳浸信会展信堂于一九八九年七月成立。自一九八四年起，冯牧师回应神的带领，与东区浸信会的Burman牧师一同向说粤语的华人移民社区展开福音工作，促成了华澳浸信会展信堂的建立。教会一直坚守其根基——神的话语。我们的事工一直以神的话语为中心——主日崇拜、主日学、细胞小组和团契都以此为根基；同时亦不忘记大使命。自成立之初，华澳浸信会展信堂已设立宣教基金，支持本地和海外宣教工作。我们看到一幅美丽的图画——当时的澳洲和华人牧师及弟兄姊妹回应社区的福音需要，参与本地宣教，建立教会，传扬神的话语，支持海外宣教。正如主耶稣升天前对使徒说：「你们将在耶路撒冷、犹太全地和撒玛利亚，直到地极，作我的见证」（使徒行传1:8）。感谢神多年来的供应，建立了华澳浸信会展信堂这个属灵大家庭来宣扬基督并见证祂福音的大能。`,
+    },
+    pastors: {
+      title: "我们的牧者",
+      biography: "个人简介",
+      comingSoon: "个人简介即将刊登",
     },
     contact: {
       title: "联络",
