@@ -103,7 +103,33 @@ export const translations = {
     pastors: {
       title: "Our Pastors",
       biography: "Biography",
-      comingSoon: "Biography coming soon",
+      detail: [
+        {
+          name: "Christy Tsai",
+          title: "Mandarin Congregation Pastor",
+          photo: "/images/christy.jpg",
+          bio: "Christy Tsai was born in Taiwan and came to faith in 1989 as a first-generation Christian. Since then, she has served in various roles within the church, including as a devotional team member, small group leader, young adults fellowship leader, Sunday school teacher, and deacon.\n\nIn 2001, she migrated to Sydney, Australia. In 2012, she and her husband, Pastor Trent Tsai, began theological training at the Chinese Theological College Australia. After graduating, they started serving together at CABC-T in 2016. Following Pastor Trent Tsai's retirement at the end of 2020, Christy stepped into the pastoral role in January 2021 and has been faithfully shepherding the congregation since.\n\nThey have three daughters, all grown and now with families of their own. Outside of ministry, they enjoy morning swimming, cooking and exploring good food, travelling, and watching movies. They also value meaningful conversations with others about the Bible and growing together in the understanding of God's truth.",
+        },
+        {
+          name: "Nathan Kwok",
+          title: "English Congregation Pastor",
+          titleTc: "英語堂傳道",
+          photo: "/images/nathan.png",
+          bio: "Nathan grew up in the Hills area and has been part of CABC-T from a young age. After working as a chartered accountant for five years, he left that career to complete a Master of Divinity at Morling College. He then served at a small church in Five Dock for seven years before being called by God to return and serve as the English Pastor at CABC-T in July 2022. Nathan loves helping others find joy in Jesus and has a deep passion for music and worship. He believes that, in every stage of life, each person has a deep need for Jesus and a meaningful relationship with Him. At home, Nathan and his wife Jess have two young children, a lively three-year-old boy and a cheeky one-year-old girl. As a family, they enjoy the rhythms of life together, from playtime and walks around the neighbourhood to the everyday joys and chaos of raising young kids. Nathan and Jess would love to chat with you, whether you have questions about Jesus, faith, or simply want to connect. Feel free to reach out any time!",
+        },
+        {
+          name: "Felix Siu",
+          title: "Cantonese Congregation Pastor",
+          photo: "/images/felix.jpg",
+          bio: "",
+        },
+        {
+          name: "Agnes Fan",
+          title: "Children Ministry Worker",
+          photo: "/images/agnes.jpg",
+          bio: "",
+        },
+      ]
     },
     contact: {
       title: "Contact",
@@ -238,7 +264,32 @@ export const translations = {
     pastors: {
       title: "我們的牧者",
       biography: "個人簡介",
-      comingSoon: "個人簡介即將刊登",
+      detail: [
+        {
+          name: "蔡李映霞",
+          title: "國語堂傳道",
+          photo: "/images/christy.jpg",
+          bio: "蔡李映霞出生於台灣，1989年信主，是第一代基督徒。信主後在教會中不同崗位服事，曾擔任靈修同工、小組長、社青團契團長、主日學教師以及執事等職分。2001年移居澳洲雪梨，2012年與丈夫蔡權澤一同進入澳洲華人教牧神學院接受裝備。畢業後，自2016年起，兩人一同在華澳浸信會展信堂服事。2020年底蔡權澤牧師退休後，於2021年1月承接牧職，牧養教會至今。他們育有三位女兒，都已成年，分別有了家庭。在牧會之餘，他們喜歡晨泳、烹飪、品嚐美食，也喜歡旅遊與看電影。他們也喜歡與他人進行有意義的聖經對話，並在理解上帝真理的過程中一起成長。",
+        },
+        {
+          name: "郭兆麟",
+          title: "英語堂傳道",
+          photo: "/images/nathan.png",
+          bio: "Nathan 在 Hills 區長大，從小就在 CABC-T 聚會。完成五年的特許會計師工作後，他離開原本的職業，前往 Morling College 完成道學碩士學位。之後，他在 Five Dock 的一間小型教會服事七年，並於 2022 年 7 月蒙神呼召，回到 CABC-T 擔任英語堂牧師。 Nathan 熱衷於幫助人們在耶穌裡找到真正的喜樂，並對音樂與敬拜充滿熱情。他相信，在人生的每一個階段，人都深深需要耶穌，以及與祂建立一段真實而有意義的關係。在家庭方面，Nathan 與妻子 Jess 育有兩個年幼的孩子，一位活潑的三歲男孩，以及一位調皮的一歲女孩。一家人享受一起生活的節奏，無論是玩樂、在社區散步，或是經歷育兒生活中的各種喜樂與忙碌。Nathan 和 Jess 很樂意與你交流，無論你對耶穌、信仰有任何問題，或只是想輕鬆聊聊，都歡迎隨時聯絡他們！",
+        },
+        {
+          name: "蕭健正",
+          title: "粵語堂傳道",
+          photo: "/images/felix.jpg",
+          bio: "",
+        },
+        {
+          name: "潘雅思",
+          title: "兒童事工負責人",
+          photo: "/images/agnes.jpg",
+          bio: "",
+        },
+      ]
     },
     contact: {
       title: "聯絡",
@@ -373,7 +424,32 @@ export const translations = {
     pastors: {
       title: "我们的牧者",
       biography: "个人简介",
-      comingSoon: "个人简介即将刊登",
+      detail: [
+        {
+          name: "蔡李映霞",
+          title: "国语堂传道",
+          photo: "/images/christy.jpg",
+          bio: "蔡李映霞出生于台湾，1989年信主，是第一代基督徒。信主后在教会中不同岗位服事，曾担任灵修同工、小组长、社青团契团长、主日学教师以及执事等职分。 2001年移居澳洲雪梨，2012年与丈夫蔡权泽一同进入澳洲华人教牧神学院接受装备。毕业后，自2016年起，两人一同在华澳浸信会展信堂服事。 2020年底蔡权泽牧师退休后，于2021年1月承接牧职，牧养教会至今。他们育有三位女儿，都已成年，分别有了家庭。在牧会之余，他们喜欢晨泳、烹饪、品尝美食，也喜欢旅游与看电影。他们也喜欢与他人进行有意义的圣经对话，并在理解上帝真理的过程中一起成长。",
+        },
+        {
+          name: "郭兆麟",
+          title: "英语堂传道",
+          photo: "/images/nathan.png",
+          bio: "Nathan 在 Hills 区长大，从小就在 CABC-T 聚会。完成五年的特许会计师工作后，他离开原本的职业，前往 Morling College 完成道学硕士学位。之后，他在 Five Dock 的一间小型教会服事七年，并于 2022 年 7 月蒙神呼召，回到 CABC-T 担任英语堂牧师。Nathan 热衷于帮助人们在耶稣里找到真正的喜乐，并对音乐与敬拜充满热情。他相信，在人生的每一个阶段，人都深深需要耶稣，以及与祂建立一段真实而有意义的关系。在家庭方面，Nathan 与妻子 Jess 育有两个年幼的孩子，一位活泼的三岁男孩，以及一位调皮的一岁女孩。一家人享受一起生活的节奏，无论是玩乐、在社区散步，还是经历育儿生活中的各种喜乐与忙碌。Nathan 和 Jess 很乐意与你交流，无论你对耶稣、信仰有任何问题，或只是想轻松聊聊，都欢迎随时联系他们！",
+        },
+        {
+          name: "萧健正",
+          title: "粤语堂传道",
+          photo: "/images/felix.jpg",
+          bio: "",
+        },
+        {
+          name: "潘雅思",
+          title: "儿童事工负责人",
+          photo: "/images/agnes.jpg",
+          bio: "",
+        },
+      ]
     },
     contact: {
       title: "联络",
