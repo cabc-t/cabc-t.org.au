@@ -5,7 +5,7 @@ export const translations = {
     siteName: "CABC Thornleigh",
     filters: {
       all: "All",
-      day: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      day: ["Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"],
     },
     nav: {
       home: "Home",
@@ -166,7 +166,7 @@ export const translations = {
     siteName: "華澳浸信會展信堂",
     filters: {
       all: "全部",
-      day: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+      day: ["星期日", "星期六", "星期五", "星期四", "星期三", "星期二", "星期一"],
     },
     nav: {
       home: "主頁",
@@ -326,7 +326,7 @@ export const translations = {
     siteName: "华澳浸信会展信堂",
     filters: {
       all: "全部",
-      day: ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+      day: ["星期日", "星期六", "星期五", "星期四", "星期三", "星期二", "星期一"],
     },
     nav: {
       home: "首页",

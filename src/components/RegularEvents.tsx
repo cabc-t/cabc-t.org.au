@@ -51,7 +51,13 @@ export function RegularEvents({ locale }: LocaleProps ) {
   const [selectedLanguage, setSelectedLanguage] = useState("All");
 
   const allLabel = t.filters.all;
-  
+
+  const DAY_ORDER: Record<string, number> = {
+    "Sunday": 0, "Saturday": 1, "Friday": 2, "Thursday": 3, "Wednesday": 4, "Tuesday": 5, "Monday": 6,
+    "星期日": 0, "星期六": 1, "星期五": 2, "星期四": 3, "星期三": 4, "星期二": 5, "星期一": 6,
+    "周日": 0, "周六": 1, "周五": 2, "周四": 3, "周三": 4, "周二": 5, "周一": 6,
+  };
+
   // Derived Data (Unique Days/Tags for the UI)
   const days = useMemo(() => {
     // 1. Get unique day_text values, handling null/undefined
@@ -181,6 +187,33 @@ export function RegularEvents({ locale }: LocaleProps ) {
       const tagMatch = selectedTag === "All" || event.tag_key === selectedTag;
       const languageMatch = selectedLanguage === "All" || event.language_label === selectedLanguage;
       return dayMatch && tagMatch && languageMatch;
+    });
+  }, [allEvents, selectedDay, selectedTag, selectedLanguage]);
+
+  const sortedEvents = useMemo(() => {
+    // 1. Start with your filtered array
+    const filtered = allEvents.filter(event => {
+      const dayMatch = selectedDay === "All" || event.day_text === selectedDay;
+      const tagMatch = selectedTag === "All" || event.tag_key === selectedTag;
+      const languageMatch = selectedLanguage === "All" || event.language_label === selectedLanguage;
+      return dayMatch && tagMatch && languageMatch;
+    });
+  
+    // 2. Apply the Sort
+    return [...filtered].sort((a, b) => {
+      // LEVEL 1: Day of the Week
+      const dayA = DAY_ORDER[a.day_text || ""] ?? 7; // Use 7 for "No set day" to put at end
+      const dayB = DAY_ORDER[b.day_text || ""] ?? 7;
+      
+      if (dayA !== dayB) return dayA - dayB;
+  
+      // LEVEL 2: Category (Tag Label)
+      // localeCompare is great for alphabetical sorting of strings
+      const tagSort = (a.tag_label || "").localeCompare(b.tag_label || "");
+      if (tagSort !== 0) return tagSort;
+  
+      // LEVEL 3: Name (Title)
+      return (a.title || "").localeCompare(b.title || "");
     });
   }, [allEvents, selectedDay, selectedTag, selectedLanguage]);
 
@@ -318,10 +351,10 @@ export function RegularEvents({ locale }: LocaleProps ) {
     <div className="w-full overflow-hidden border border-slate-200 rounded-xl bg-white shadow-sm">
       <table className="w-full text-left border-collapse">
         <tbody className="divide-y divide-slate-100">
-          {filteredEvents.length > 0 ? (
-            filteredEvents.map((event) => (
+          {sortedEvents.length > 0 ? (
+            sortedEvents.map((event) => (
 
-<React.Fragment key={event.id}>
+            <React.Fragment key={event.id}>
               {/* Main Row */}
               <tr 
                 onClick={() => toggleRow(event.id)}
