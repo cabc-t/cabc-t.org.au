@@ -102,10 +102,17 @@ export function RegularEvents({ locale }: LocaleProps ) {
       ...uniqueLanguages.map(lang => ({ key: lang, label: lang }))
     ];
   }, [allEvents, allLabel]);
- 
+
+  const LOCALE_TO_LABEL: Record<string, string> = {
+    en: "English",
+    tc: "粵語",
+    sc: "国语",
+  };
+
   useEffect(() => {
     async function fetchEvents() {
       setIsLoading(true);
+
       try {
         // 1. Fetch from base table and 'inner join' the translations
         // We use !inner to ensure we ONLY get events that have a translation for the current locale
@@ -118,6 +125,9 @@ export function RegularEvents({ locale }: LocaleProps ) {
             )
           `)
           .eq('event_translations.locale', locale);
+
+// console.log('Current Locale:', locale);
+// console.log('Fetched Data:', data);
 
         if (error) {
           console.error('Supabase Error:', error.message);
@@ -141,6 +151,20 @@ export function RegularEvents({ locale }: LocaleProps ) {
         });
 
         setAllEvents(formattedEvents);
+
+        // Auto-set the language filter to match the fetched locale
+        if (formattedEvents.length > 0) {
+// console.log('Current Locale:', locale);
+// console.log('formattedEvents:', formattedEvents);
+          // Map locale code to language label ---
+          const targetLabel = LOCALE_TO_LABEL[locale];
+
+          if (targetLabel) {
+            setSelectedLanguage(targetLabel);
+          } else {
+            setSelectedLanguage("All");
+          }
+        }
       } catch (err) {
         console.error('Error:', err);
       } finally {
@@ -159,7 +183,7 @@ export function RegularEvents({ locale }: LocaleProps ) {
       return dayMatch && tagMatch && languageMatch;
     });
   }, [allEvents, selectedDay, selectedTag, selectedLanguage]);
-  
+
   if (isLoading) {
     return (
       <div className="flex flex-col items-center justify-center py-20 text-slate-400">
