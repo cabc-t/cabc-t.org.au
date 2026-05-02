@@ -1,10 +1,10 @@
-import { languages, type LanguageCode } from "@/lib/i18n";
+import { languages, type LanguageCode, type LocaleProps } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 
 export default async function AboutPage({
   params,
 }: {
-  params: { locale: string };
+  params: LocaleProps;
 }) {
   const locale = (params.locale && params.locale in languages ? params.locale : "en") as LanguageCode;
   const t = getTranslations(locale);
