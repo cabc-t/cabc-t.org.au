@@ -373,8 +373,12 @@ export function RegularEvents({ locale }: LocaleProps ) {
                     <Clock className="w-3.5 h-3.5 text-slate-400" />
                     <span className="text-sm">
                       <span className="font-semibold">{event.day_text}</span>
-                      <span className="mx-1.5 text-slate-300">|</span>
-                      {event.time_text}
+                      {event.time_text && (
+                        <>
+                          <span className="mx-1.5 text-slate-300">|</span>
+                          {event.time_text}
+                        </>
+                      )}
                     </span>
                   </div>
                 </td>
