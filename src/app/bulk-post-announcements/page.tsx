@@ -74,7 +74,9 @@ export default function BulkPostAnnouncements() {
     // Regex to capture the NUMBER and the CONTENT separately
     // Matches "1. Text...", "2. Text..." etc.
     const regex = /(?:^|\n)(\d+)\.\s+([\s\S]+?)(?=\n\d+\.\s+|$)/g
-    const matches = [...inputText.matchAll(regex)]
+
+    // Use Array.from instead of the spread operator [...]
+    const matches = Array.from(inputText.matchAll(regex))
 
     if (matches.length === 0) {
       setMessage('Error: No numbered items found. Ensure format is "1. Content"')
