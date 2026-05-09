@@ -5,6 +5,17 @@
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- =====================
+-- USER ROLES TABLE
+-- =====================
+CREATE TABLE user_roles (
+  user_id UUID REFERENCES auth.users NOT NULL PRIMARY KEY,
+  role TEXT DEFAULT 'user'
+);
+
+-- Enable RLS
+ALTER TABLE user_roles ENABLE ROW LEVEL SECURITY;
+
+-- =====================
 -- ANNOUNCEMENTS TABLE
 -- =====================
 CREATE TABLE IF NOT EXISTS announcements (
@@ -46,6 +57,16 @@ CREATE POLICY "announcements_auth_update" ON announcements
 -- Policy: Only authenticated users can delete
 CREATE POLICY "announcements_auth_delete" ON announcements
   FOR DELETE USING (auth.uid() IS NOT NULL);
+
+-- AO Insert Access: Only users with the 'AO' role can insert
+CREATE POLICY "AO can insert announcements" 
+ON announcements FOR INSERT TO authenticated
+WITH CHECK (
+  EXISTS (
+    SELECT 1 FROM user_roles 
+    WHERE user_id = auth.uid() AND role = 'AO'
+  )
+);
 
 -- =====================
 -- SERMONS TABLE
