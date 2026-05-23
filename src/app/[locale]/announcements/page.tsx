@@ -63,7 +63,7 @@ export default function AnnouncementsPage({ params }: { params: LocaleProps }) {
                         {announcement.title}
                       </h2>
                       <p className="text-sm text-gray-500 mb-4">
-                        {format(new Date(announcement.created_at), "MMMM d, yyyy")}
+                        {format(new Date(announcement.start_date), "d MMM yyyy")}
                       </p>
                       {announcement.image_url && (
                         <img
