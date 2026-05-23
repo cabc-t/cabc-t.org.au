@@ -21,7 +21,7 @@ interface UseAnnouncementsOptions {
   limit?: number;
 }
 
-export function useAnnouncements({ locale, limit = 10 }: UseAnnouncementsOptions) {
+export function useAnnouncements({ locale }: UseAnnouncementsOptions) {
   const [announcements, setAnnouncements] = useState<Announcement[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -30,6 +30,7 @@ export function useAnnouncements({ locale, limit = 10 }: UseAnnouncementsOptions
     async function fetchAnnouncements() {
       const supabase = createClient();
       const today = new Date().toISOString().split('T')[0];
+      console.log("today " + today);
       
       try {
         let query = supabase
@@ -39,7 +40,6 @@ export function useAnnouncements({ locale, limit = 10 }: UseAnnouncementsOptions
           .lte("start_date", today)
           .order("priority", { ascending: true })
           .order("created_at", { ascending: false })
-          .limit(limit);
 
         const { data, error: fetchError } = await query;
 
@@ -62,7 +62,7 @@ export function useAnnouncements({ locale, limit = 10 }: UseAnnouncementsOptions
     }
 
     fetchAnnouncements();
-  }, [locale, limit]);
+  }, [locale]);
 
   return { announcements, loading, error };
 }

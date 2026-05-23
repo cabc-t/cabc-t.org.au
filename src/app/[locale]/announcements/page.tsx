@@ -10,7 +10,7 @@ export default function AnnouncementsPage({ params }: { params: LocaleProps }) {
   const localeCode: LanguageCode = (params.locale && (params.locale === "tc" || params.locale === "sc")) 
     ? params.locale 
     : "en";
-  const { announcements, loading, error } = useAnnouncements({ locale: localeCode, limit: 20 });
+  const { announcements, loading, error } = useAnnouncements({ locale: localeCode });
 
   const t = getTranslations(localeCode);
 

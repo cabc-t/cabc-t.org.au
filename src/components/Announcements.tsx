@@ -15,9 +15,9 @@ interface AnnouncementsProps {
   showTitle?: boolean;
 }
 
-export function Announcements({ locale, limit = 5, showTitle = false }: AnnouncementsProps) {
+export function Announcements({ locale, showTitle = false }: AnnouncementsProps) {
   const t = getTranslations(locale);
-  const { announcements, loading, error } = useAnnouncements({ locale, limit });
+  const { announcements, loading, error } = useAnnouncements({ locale });
   const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
