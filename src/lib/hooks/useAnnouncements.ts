@@ -30,7 +30,7 @@ export function useAnnouncements({ locale }: UseAnnouncementsOptions) {
     async function fetchAnnouncements() {
       const supabase = createClient();
       const today = new Date().toISOString().split('T')[0];
-      console.log("today " + today);
+      // console.log("today " + today);
       
       try {
         let query = supabase
