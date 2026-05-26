@@ -29,7 +29,7 @@ export default async function HomePage({
       {/* Announcements */}
       <section id="news" className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Announcements locale={locale} limit={10} showTitle={true} />
+          <Announcements locale={locale} showTitle={true} />
         </div>
       </section>
 
