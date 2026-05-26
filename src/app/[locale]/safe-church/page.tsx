@@ -1,13 +1,14 @@
-import { languages, type LanguageCode, type LocaleProps } from "@/lib/i18n";
+import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 
 export default async function SafeChurchPage({
   params,
 }: {
-  params: LocaleProps;
+  params: Promise<LanguageCode>; 
 }) {
-  const locale = (params.locale && params.locale in languages ? params.locale : "en") as LanguageCode;
-  const t = getTranslations(locale);
+  const resolvedParams = await params;
+  const locale         = resolvedParams.locale as LanguageCode;
+  const t              = getTranslations(locale);
 
   const content = {
     en: {

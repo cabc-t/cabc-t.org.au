@@ -1,4 +1,4 @@
-import { languages, type LanguageCode, type LocaleProps } from "@/lib/i18n";
+import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { Announcements } from "@/components/Announcements";
 import RegularEvents from "@/components/RegularEvents";
@@ -9,15 +9,17 @@ import ChildrenSection from "@/components/ChildrenSection";
 import YouthSection from "@/components/YouthSection";
 import SeniorSection from "@/components/SeniorSection";
 import CellSection from "@/components/CellSection";
+import PastorSection from "@/components/PastorSection";
 import AboutSection from "@/components/AboutSection";
 
 export default async function HomePage({
   params,
 }: {
-  params: LocaleProps;
+  params: Promise<LanguageCode>; 
 }) {
-  const locale = (params.locale && params.locale in languages ? params.locale : "en") as LanguageCode;
-  const t = getTranslations(locale);
+  const resolvedParams = await params;
+  const locale         = resolvedParams.locale as LanguageCode;
+  const t              = getTranslations(locale);
 
   return (
     <div className="flex flex-col">
@@ -73,7 +75,27 @@ export default async function HomePage({
           <RegularEvents locale={locale} />
         </div>
       </section>
-      
+
+      {/* Pastors */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-display font-bold text-gray-900 mb-8 text-center">
+            Meet Our Pastors
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {t.pastors.detail.map((detail, index) => (
+              <PastorSection 
+                key={index}
+                pastor={detail}
+                locale={locale}
+                isSummary={true} // <--- Hides bio, shows link
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    
       {/* About */}
       <section id="about" className="py-16 bg-white">
         <AboutSection locale={locale} />

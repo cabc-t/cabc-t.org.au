@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { createClient } from "@/lib/supabase/client";
-import { type LanguageCode, type LocaleProps } from "@/lib/i18n";
+import { type LanguageCode } from "@/lib/i18n";
 import { ChevronDown, ChevronUp, MapPin, Info, Clock, Globe, Tag, Calendar, Loader2, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
 import { getTranslations } from "@/lib/translations";
 
@@ -37,7 +37,7 @@ interface Event {
   icon_name: string;
 }
 
-export function RegularEvents({ locale }: LocaleProps ) {
+export function RegularEvents({ locale }: LanguageCode ) {
   const t = getTranslations(locale);
 
   const supabase = createClient();

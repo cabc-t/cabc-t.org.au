@@ -1,48 +1,39 @@
-import { languages, type LanguageCode, type LocaleProps } from "@/lib/i18n";
+import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
+import { PastorSection } from "@/components/PastorSection";
+import Link from "next/link";
 
-export default async function PastorsPage({
+export default async function AllPastorsPage({
   params,
 }: {
-  params: LocaleProps;
+  params: Promise<LanguageCode>; 
 }) {
-  const locale = (params.locale && params.locale in languages ? params.locale : "en") as LanguageCode;
-  const t = getTranslations(locale);
+  const resolvedParams = await params;
+  const locale         = resolvedParams.locale as LanguageCode;
+  const t              = getTranslations(locale);
 
   return (
-    <div className="py-16 bg-white">
+    <div className="py-16 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-display font-bold text-gray-900 mb-4 text-center">
-          {t.pastors.title}
-        </h1>
+        
+        <div className="mb-12 text-center">
+          <h1 className="text-4xl font-display font-bold text-gray-900 mb-4">
+            {t.pastors.title} {/* E.g., "Our Pastoral Team" */}
+          </h1>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {/* Render ALL pastors with isSummary={false} to show the bios */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
           {t.pastors.detail.map((detail, index) => (
-            <div
+            <PastorSection
               key={index}
-              className="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <div className="aspect-[4/5] bg-gray-200 relative">
-                <img
-                  src={detail.photo}
-                  alt={detail.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h2 className="text-xl font-display font-bold text-gray-900 mb-1">
-                  {detail.name}
-                </h2>
-                <p className="text-[#263880] font-medium mb-4">
-                  {detail.title}
-                </p>
-                <div className="text-gray-600 text-sm whitespace-pre-line">
-                  {detail.bio}
-                </div>
-              </div>
-            </div>
+              pastor={detail}
+              locale={locale}
+              isSummary={false} 
+            />
           ))}
         </div>
+        
       </div>
     </div>
   );

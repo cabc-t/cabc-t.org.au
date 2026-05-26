@@ -1,15 +1,14 @@
 "use client";
 
 import { format } from "date-fns";
-import { type LanguageCode, type LocaleProps } from "@/lib/i18n";
+import { type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { useAnnouncements, type Announcement } from "@/lib/hooks/useAnnouncements";
 import DOMPurify from "dompurify";
 
-export default function AnnouncementsPage({ params }: { params: LocaleProps }) {
-  const localeCode: LanguageCode = (params.locale && (params.locale === "tc" || params.locale === "sc")) 
-    ? params.locale 
-    : "en";
+export default function AnnouncementsPage({ params }: { params: Promise<LanguageCode>; }) {
+  const resolvedParams = await params;
+  const locale         = resolvedParams.locale as LanguageCode;
   const { announcements, loading, error } = useAnnouncements({ locale: localeCode });
 
   const t = getTranslations(localeCode);
