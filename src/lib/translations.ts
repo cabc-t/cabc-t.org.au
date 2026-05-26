@@ -100,7 +100,7 @@ export const translations = {
       history: `Chinese and Australian Baptist Church - Thornleigh was founded in July 1989. Since 1984, Rev. Joseph Fung responded to God's guidance, and, together with Rev. Burman of Eastwood Baptist Church began to reach out to the Cantonese speaking Chinese migrant community, resulting in the establishment of CABC Thornleigh. All this time the Church has upheld its foundation – the Word of God. The ministry of our church has always centred on the Word of God – our Sunday worship, our all-age Sunday school, our cell groups and fellowship groups all built upon this foundation; but from the beginning, never forgetting the Great Commission. Right from the beginning, CABC-Thornleigh already established a mission fund, supporting local and overseas missions. Here we see a beautiful picture, the Australian and Chinese pastors and brothers and sisters then, in responding to the gospel need of the community, joined in local mission, establishing the church, spreading the Word of God, and supporting overseas missions. Just as the Lord Jesus, before his ascension, instructed the apostles and said, "…You will be my witnesses in Jerusalem, and in all Judea and Samaria, and to the ends of the earth" (Acts 1:8). We thank God for His provision throughout the years, for establishing CABC-Thornleigh this big spiritual family to proclaim Christ and witness the power of His Gospel.`,
     },
     pastors: {
-      title: "Our Pastors",
+      title: "Meet Our Pastors",
       biography: "Biography",
       detail: [
         {
