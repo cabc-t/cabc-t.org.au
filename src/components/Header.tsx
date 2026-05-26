@@ -24,7 +24,7 @@ export function Header() {
     { href: `/${locale}#children`, label: t.nav.children },
     { href: `/${locale}#cells`, label: t.nav.cells },
     { href: `/${locale}#regularEvents`, label: t.nav.regularEvents },
-    { href: `/${locale}/about/pastors`, label: t.nav.pastors },
+    { href: `/${locale}/pastors`, label: t.nav.pastors },
     { href: `/${locale}#about`, label: t.nav.about },
   ];
 
