@@ -175,7 +175,7 @@ export const translations = {
     },
     hero: {
       welcome: "歡迎來到華澳浸信會展信堂",
-      subtitle: "以神的話語培育門徒，成為散播神愛的播種者",
+      subtitle: "藉聖道栽培門徒 用生命播揚主愛",
       youtubeLink: "在YouTube觀看",
     },
     community: {
@@ -326,7 +326,7 @@ export const translations = {
     },
     hero: {
       welcome: "欢迎来到华澳浸信会展信堂",
-      subtitle: "以神的话语培育门徒，成为散播神爱的播种者",
+      subtitle: "借圣道栽培门徒 用生命播扬主爱",
       youtubeLink: "在YouTube观看",
     },
     community: {

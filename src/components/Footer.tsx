@@ -19,11 +19,7 @@ export function Footer() {
               {t.siteName}
             </h3>
             <p className="text-sm leading-relaxed text-gray-400 max-w-xs">
-              {locale === "en" 
-                ? "To nurture disciples in God's word. Be sowers of God's love."
-                : locale === "tc"
-                ? "以神的話語培育門徒，成為散播神愛的播種者"
-                : "以神的话语培育门徒，成为散播神爱的播种者"}
+              {t.hero.subtitle}
             </p>
           </div>
 
