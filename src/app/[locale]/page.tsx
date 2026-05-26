@@ -1,7 +1,6 @@
 import { languages, type LanguageCode, type LocaleProps } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { Announcements } from "@/components/Announcements";
-import { SermonsList } from "@/components/SermonsList";
 import RegularEvents from "@/components/RegularEvents";
 import HeroSection from "@/components/HeroSection";
 import CommunitySection from "@/components/CommunitySection";
@@ -75,15 +74,6 @@ export default async function HomePage({
         </div>
       </section>
       
-      {/* Recent Sermons */}
-      {/*
-      <section id="sermons" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SermonsList locale={locale} limit={6} showTitle={true} horizontalScroll={true} />
-        </div>
-      </section>
-      */}
-
       {/* About */}
       <section id="about" className="py-16 bg-white">
         <AboutSection locale={locale} />
