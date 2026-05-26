@@ -14,7 +14,6 @@ export const translations = {
       children: "Children",
       cells: "Cell Groups",
       regularEvents: "Regular Events",
-      sermons: "Sermons",
       announcements: "News",
       statementsOfFaith: "Statements of Faith",
       safeChurch: "Safe Church",
@@ -147,14 +146,6 @@ export const translations = {
       title: "All regular gatherings in a glance",
       desc: "Whether you're looking for a place to worship, bible study, or connect, there is a place for you here every week.",
     },
-    sermons: {
-      title: "Sermons",
-      watchOnYouTube: "Watch on YouTube",
-      noSermons: "No sermons available.",
-      viewAll: "View All",
-      language: "Language",
-      all: "All",
-    },
     footer: {
       copyright: "© {year} CABC Thornleigh. All rights reserved.",
       statementsOfFaith: "Statements of Faith",
@@ -175,7 +166,6 @@ export const translations = {
       children: "兒童",
       cells: "細胞小組",
       regularEvents: "定期活動",
-      sermons: "講道",
       announcements: "資訊",
       statementsOfFaith: "信條",
       safeChurch: "安全教會",
@@ -307,14 +297,6 @@ export const translations = {
       title: "定期活動一覽",
       desc: "無論您是想找地方敬拜、學習聖經或與人交流，這裡都有適合您的活動。",
     },
-    sermons: {
-      title: "講道",
-      watchOnYouTube: "在YouTube觀看",
-      noSermons: "暫時沒有講道。",
-      viewAll: "查看全部",
-      language: "語言",
-      all: "全部",
-    },
     footer: {
       copyright: "© {year} 華澳浸信會展信堂。保留所有權利。",
       statementsOfFaith: "信條",
@@ -335,7 +317,6 @@ export const translations = {
       children: "儿童",
       cells: "细胞小组",
       regularEvents: "定期活动",
-      sermons: "讲道",
       announcements: "资讯",
       statementsOfFaith: "信条",
       safeChurch: "安全教会",
@@ -466,14 +447,6 @@ export const translations = {
     regularEvents: {
       title: "定期活动一览",
       desc: "无论您是想找地方敬拜、学习圣经或与人交流，这里都有适合您的活动。",
-    },
-    sermons: {
-      title: "讲道",
-      watchOnYouTube: "在YouTube观看",
-      noSermons: "暂时没有讲道。",
-      viewAll: "查看全部",
-      language: "语言",
-      all: "全部",
     },
     footer: {
       copyright: "© {year} 华澳浸信会展信堂。保留所有权利。",
