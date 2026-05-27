@@ -10,7 +10,7 @@ export function ServiceSection({ locale }: { locale: LanguageCode }) {
             {t.about.title}
           </h2>
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-600 leading-relaxed" style={{ whiteSpace: 'pre-line' }}>
               {t.about.history}
             </p>
           </div>
