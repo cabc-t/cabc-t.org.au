@@ -25,9 +25,9 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
   const t = getTranslations(locale);
   const anchorId = "pastors";
 
-  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const toggleRow = (id: string) => {
+  const toggleRow = (id: number) => {
     setExpandedId(expandedId === id ? null : id);
   };
 
@@ -47,17 +47,17 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
       </div>
       
       <div 
-        onClick={() => pastor.bio && toggleRow(pastor.id)}
+        onClick={() => pastor.bio && toggleRow(id)}
         onKeyDown={(e) => {
           // Allow keyboard users to trigger the expansion with Enter or Space
           if (pastor.bio && (e.key === 'Enter' || e.key === ' ')) {
             e.preventDefault();
-            toggleRow(pastor.id);
+            toggleRow(id);
           }
         }}
         role={pastor.bio ? "button" : undefined}
         tabIndex={pastor.bio ? 0 : undefined}
-        aria-expanded={pastor.bio ? (expandedId === pastor.id) : undefined}
+        aria-expanded={pastor.bio ? (expandedId === id) : undefined}
         className={`p-6 flex flex-col flex-grow group outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg ${
           pastor.bio ? "cursor-pointer" : ""
         }`}>
@@ -71,18 +71,18 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
         {pastor.bio && (
           <div className="mt-4 text-sm text-gray-600">
             <div className={`relative transition-all duration-300 ${
-              expandedId === pastor.id ? "max-h-[500px]" : "max-h-10 overflow-hidden"
+              expandedId === id ? "max-h-[500px]" : "max-h-10 overflow-hidden"
             }`}>
               <p className="whitespace-pre-line">{pastor.bio}</p>
               
               {/* Gradient Overlay when collapsed */}
-              {expandedId !== pastor.id && (
+              {expandedId !== id && (
                 <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent" />
               )}
             </div>
             
             <span className="text-xs font-bold text-blue-600 mt-2 block hover:underline">
-              {expandedId === pastor.id ? t.pastors.show_less : t.pastors.show_more }
+              {expandedId === id ? t.pastors.show_less : t.pastors.show_more }
             </span>
           </div>
         )}
