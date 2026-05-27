@@ -4,7 +4,7 @@ import { getTranslations } from "@/lib/translations";
 export default async function PrivacyPolicyPage({
   params,
 }: {
-  params: Promise<LanguageCode>; 
+  params: Promise<{ locale: string }>;
 }) {
   const resolvedParams = await params;
   const locale         = resolvedParams.locale as LanguageCode;

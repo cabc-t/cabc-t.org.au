@@ -6,7 +6,7 @@ import Link from "next/link";
 export default async function AllPastorsPage({
   params,
 }: {
-  params: Promise<LanguageCode>; 
+  params: Promise<{ locale: string }>;
 }) {
   const resolvedParams = await params;
   const locale         = resolvedParams.locale as LanguageCode;

@@ -6,7 +6,11 @@ import { getTranslations } from "@/lib/translations";
 import { useAnnouncements, type Announcement } from "@/lib/hooks/useAnnouncements";
 import DOMPurify from "dompurify";
 
-export default function AnnouncementsPage({ params }: { params: Promise<LanguageCode>; }) {
+export default function AnnouncementsPage({
+  params 
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const resolvedParams = await params;
   const locale         = resolvedParams.locale as LanguageCode;
   const { announcements, loading, error } = useAnnouncements({ locale: localeCode });

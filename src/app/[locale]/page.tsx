@@ -15,7 +15,7 @@ import AboutSection from "@/components/AboutSection";
 export default async function HomePage({
   params,
 }: {
-  params: Promise<LanguageCode>; 
+  params: Promise<{ locale: string }>;
 }) {
   const resolvedParams = await params;
   const locale         = resolvedParams.locale as LanguageCode;
