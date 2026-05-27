@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { type LanguageCode } from "@/lib/i18n";
+import { useRouter } from "next/navigation";
 
 interface Props {
   locale: LanguageCode;
@@ -19,6 +20,19 @@ type ParsedAnnouncement = {
 
 export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
   const supabase = createClient()
+  
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    // 1. Sign out of Supabase to clear the session cookie
+    await supabase.auth.signOut();
+    
+    // 2. Redirect to the localized login page
+    router.push(`/${locale}/login`);
+    
+    // 3. Refresh the router to clear any cached authenticated states
+    router.refresh();
+  };
   
   // State
   const [inputText, setInputText] = useState('')
@@ -138,7 +152,21 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
     <div className="max-w-4xl mx-auto p-8 font-sans text-slate-900">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-black uppercase tracking-tight">Announcement Porter</h1>
-        <div className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">AO ACCESS</div>
+
+        {/* Group the badge and the logout button together */}
+        <div className="flex items-center space-x-4">
+          <div className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">
+            AO ACCESS
+          </div>
+          
+          <button 
+            onClick={handleLogout}
+            className="text-sm font-semibold text-slate-500 hover:text-slate-900 transition-colors"
+          >
+            Logout
+          </button>
+        </div>
+        
       </div>
 
       <div className="bg-slate-50 border rounded-xl p-6 mb-8 shadow-sm">
