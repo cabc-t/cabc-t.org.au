@@ -26,7 +26,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-sans bg-gray-50 min-h-screen flex flex-col">
+      <body className="font-sans bg-gray-50 min-h-screen flex flex-col" suppressHydrationWarning>
         <Header />
         <main className="flex-grow">
           {children}
