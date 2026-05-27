@@ -1,7 +1,7 @@
 import { type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 
-export function ServiceSection({ locale }: { locale: LanguageCode }) {
+export function SeniorSection({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
 
   return (
@@ -48,4 +48,4 @@ export function ServiceSection({ locale }: { locale: LanguageCode }) {
   );
 };
 
-export default ServiceSection;
+export default SeniorSection;
