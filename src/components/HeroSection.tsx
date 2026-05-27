@@ -2,7 +2,7 @@ import { YOUTUBE_CHANNEL_URL } from "@/lib/constants";
 import { type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 
-export function HeroSection({ locale }: LanguageCode ) {
+export function HeroSection({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
 
   return (

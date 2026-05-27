@@ -37,7 +37,7 @@ interface Event {
   icon_name: string;
 }
 
-export function RegularEvents({ locale }: LanguageCode ) {
+export function RegularEvents({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
 
   const supabase = createClient();
