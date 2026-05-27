@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { type LanguageCode } from "@/lib/i18n";
+import Image from "next/image";
 
 // Adjust these types to match your actual translation data structure
 export interface PastorData {
@@ -22,11 +23,13 @@ export function PastorSection({ pastor, locale, isSummary = false }: PastorCardP
       id={anchorId} 
       className="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full scroll-mt-24"
     >
-      <div className="aspect-[4/5] bg-gray-200 relative">
-        <img
+      <div className="aspect-[4/5] bg-gray-200 relative overflow-hidden rounded-t-xl">
+        <Image
           src={pastor.photo}
           alt={pastor.name}
-          className="w-full h-full object-cover"
+          fill // Fills the aspect-ratio container
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover"
         />
       </div>
       
