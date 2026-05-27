@@ -101,7 +101,8 @@ export const translations = {
     },
     pastors: {
       title: "Meet Our Pastors",
-      biography: "Biography",
+      show_more: "Show more",
+      show_less: "Show less",
       detail: [
         {
           name: "Christy Tsai",
@@ -252,7 +253,8 @@ export const translations = {
     },
     pastors: {
       title: "我們的牧者",
-      biography: "個人簡介",
+      show_more: "顯示更多",
+      show_less: "顯示更少",
       detail: [
         {
           name: "蔡李映霞",
@@ -403,7 +405,8 @@ export const translations = {
     },
     pastors: {
       title: "我们的牧者",
-      biography: "个人简介",
+      show_more: "显示更多",
+      show_less: "显示更少",
       detail: [
         {
           name: "蔡李映霞",

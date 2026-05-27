@@ -4,7 +4,7 @@ import Link from "next/link";
 import { type LanguageCode } from "@/lib/i18n";
 import Image from "next/image";
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { getTranslations } from "@/lib/translations";
 
 // Adjust these types to match your actual translation data structure
 export interface PastorData {
@@ -21,6 +21,7 @@ interface PastorCardProps {
 }
 
 export function PastorSection({ pastor, locale }: PastorCardProps) {
+  const t = getTranslations(locale);
   const anchorId = "pastors";
 
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -67,18 +68,21 @@ export function PastorSection({ pastor, locale }: PastorCardProps) {
         </p>
 
         {pastor.bio && (
-          <div className="mt-auto">
-          {expandedId === pastor.name ? (
-            <ChevronUp className="w-4 h-4 text-blue-600" />
-          ) : (
-            <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-slate-600" />
-          )}
-          </div>
-        )}
-        
-        {expandedId === pastor.name && pastor.bio && (
-          <div className="text-gray-600 text-sm whitespace-pre-line mt-4">
-            {pastor.bio}
+          <div className="mt-4 text-sm text-gray-600">
+            <div className={`relative transition-all duration-300 ${
+              expandedId === pastor.name ? "max-h-[500px]" : "max-h-10 overflow-hidden"
+            }`}>
+              <p className="whitespace-pre-line">{pastor.bio}</p>
+              
+              {/* Gradient Overlay when collapsed */}
+              {expandedId !== pastor.name && (
+                <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent" />
+              )}
+            </div>
+            
+            <span className="text-xs font-bold text-blue-600 mt-2 block hover:underline">
+              {expandedId === pastor.name ? t.pastors.show_less : t.pastors.show_more }
+            </span>
           </div>
         )}
         
