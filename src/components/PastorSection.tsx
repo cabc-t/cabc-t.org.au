@@ -18,7 +18,6 @@ interface PastorCardProps {
   id: number;
   pastor: PastorData;
   locale: LanguageCode;
-  isSummary?: boolean;
 }
 
 export function PastorSection({ id, pastor, locale }: PastorCardProps) {
