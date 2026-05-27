@@ -2,6 +2,12 @@
 
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import { type LanguageCode } from "@/lib/i18n";
+
+interface Props {
+  locale: LanguageCode;
+  userId: string;
+}
 
 type ParsedAnnouncement = {
   tempId: number;
@@ -11,7 +17,7 @@ type ParsedAnnouncement = {
   selected: boolean;
 }
 
-export default function BulkPostAnnouncements() {
+export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
   const supabase = createClient()
   
   // State
@@ -20,16 +26,6 @@ export default function BulkPostAnnouncements() {
   const [parsedItems, setParsedItems] = useState<ParsedAnnouncement[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState('')
-  const [userId, setUserId] = useState<string | null>(null)
-
-  // Get current user ID on mount
-  useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      if (user) setUserId(user.id)
-    }
-    getUser()
-  }, [supabase])
 
   // Date Logic Helpers
   const getAnnouncementDates = () => {
