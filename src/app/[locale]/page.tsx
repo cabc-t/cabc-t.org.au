@@ -86,6 +86,7 @@ export default async function HomePage({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {t.pastors.detail.map((detail, index) => (
               <PastorSection 
+                key={index}
                 id={index}
                 pastor={detail}
                 locale={locale}
