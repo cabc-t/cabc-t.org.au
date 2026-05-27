@@ -34,6 +34,7 @@ export default function LoginClient() {
   }
 
   return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
     <form
       onSubmit={handleLogin}
       className="p-8 bg-white shadow-md rounded-lg w-full max-w-md border"
@@ -76,5 +77,6 @@ export default function LoginClient() {
         {loading ? 'Logging in...' : 'Sign In'}
       </button>
     </form>
+    </div>
   )
 }
