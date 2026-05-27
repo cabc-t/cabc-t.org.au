@@ -40,7 +40,7 @@ interface Event {
 export function RegularEvents({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
 
-  const supabase = createClient();
+  const supabase = useMemo(() => createClient(), []);
   
   const [allEvents, setAllEvents] = useState<Event[]>([]);
   const [isLoading, setIsLoading] = useState(true);
