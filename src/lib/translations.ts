@@ -128,6 +128,12 @@ export const translations = {
           photo: "/images/agnes.jpg",
           bio: "",
         },
+        {
+          name: "Kenny Tse",
+          title: "Cantonese Congregation Pastor",
+          photo: "",
+          bio: "",
+        },
       ]
     },
     contact: {
@@ -280,6 +286,12 @@ export const translations = {
           photo: "/images/agnes.jpg",
           bio: "",
         },
+        {
+          name: "謝文健",
+          title: "粵語堂傳道",
+          photo: "",
+          bio: "",
+        },
       ]
     },
     contact: {
@@ -430,6 +442,12 @@ export const translations = {
           name: "潘雅思",
           title: "儿童事工负责人",
           photo: "/images/agnes.jpg",
+          bio: "",
+        },
+        {
+          name: "谢文健",
+          title: "粤语堂传道",
+          photo: "",
           bio: "",
         },
       ]
