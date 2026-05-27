@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { type LanguageCode } from "@/lib/i18n";
 import Image from "next/image";
+import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 // Adjust these types to match your actual translation data structure
 export interface PastorData {
@@ -16,8 +20,15 @@ interface PastorCardProps {
   isSummary?: boolean;
 }
 
-export function PastorSection({ pastor, locale, isSummary = false }: PastorCardProps) {
+export function PastorSection({ pastor, locale }: PastorCardProps) {
   const anchorId = "pastors";
+
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const toggleRow = (id: string) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <div 
       id={anchorId} 
@@ -33,30 +44,44 @@ export function PastorSection({ pastor, locale, isSummary = false }: PastorCardP
         />
       </div>
       
-      <div className="p-6 flex flex-col flex-grow">
+      <div 
+        onClick={() => pastor.bio && toggleRow(pastor.name)}
+        onKeyDown={(e) => {
+          // Allow keyboard users to trigger the expansion with Enter or Space
+          if (pastor.bio && (e.key === 'Enter' || e.key === ' ')) {
+            e.preventDefault();
+            toggleRow(pastor.name);
+          }
+        }}
+        role={pastor.bio ? "button" : undefined}
+        tabIndex={pastor.bio ? 0 : undefined}
+        aria-expanded={pastor.bio ? (expandedId === pastor.id) : undefined}
+        className={`p-6 flex flex-col flex-grow group outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-lg ${
+          pastor.bio ? "cursor-pointer" : ""
+        }`}>
         <h2 className="text-xl font-display font-bold text-gray-900 mb-1">
           {pastor.name}
         </h2>
         <p className="text-[#263880] font-medium mb-4">
           {pastor.title}
         </p>
-        
-        {isSummary ? (
-          // Summary Mode: Link points to the collective page + anchor
-          <div className="mt-auto pt-2">
-            <Link 
-              href={`/${locale}/pastors`}
-              className="text-[#263880] font-bold text-sm hover:underline flex items-center"
-            >
-              Read full bio &rarr;
-            </Link>
+
+        {pastor.bio && (
+          <div className="mt-auto">
+          {expandedId === pastor.name ? (
+            <ChevronUp className="w-4 h-4 text-blue-600" />
+          ) : (
+            <ChevronDown className="w-4 h-4 text-slate-300 group-hover:text-slate-600" />
+          )}
           </div>
-        ) : (
-          // Detail Mode: Show Bio
-          <div className="text-gray-600 text-sm whitespace-pre-line mt-auto">
+        )}
+        
+        {expandedId === pastor.name && pastor.bio && (
+          <div className="text-gray-600 text-sm whitespace-pre-line mt-4">
             {pastor.bio}
           </div>
         )}
+        
       </div>
     </div>
   );
