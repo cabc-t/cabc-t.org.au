@@ -20,7 +20,7 @@ interface PastorCardProps {
   isSummary?: boolean;
 }
 
-export function PastorSection({ pastor, locale }: PastorCardProps) {
+export function PastorSection({ id, pastor, locale }: PastorCardProps) {
   const t = getTranslations(locale);
   const anchorId = "pastors";
 
@@ -46,12 +46,12 @@ export function PastorSection({ pastor, locale }: PastorCardProps) {
       </div>
       
       <div 
-        onClick={() => pastor.bio && toggleRow(pastor.name)}
+        onClick={() => pastor.bio && toggleRow(pastor.id)}
         onKeyDown={(e) => {
           // Allow keyboard users to trigger the expansion with Enter or Space
           if (pastor.bio && (e.key === 'Enter' || e.key === ' ')) {
             e.preventDefault();
-            toggleRow(pastor.name);
+            toggleRow(pastor.id);
           }
         }}
         role={pastor.bio ? "button" : undefined}
@@ -70,18 +70,18 @@ export function PastorSection({ pastor, locale }: PastorCardProps) {
         {pastor.bio && (
           <div className="mt-4 text-sm text-gray-600">
             <div className={`relative transition-all duration-300 ${
-              expandedId === pastor.name ? "max-h-[500px]" : "max-h-10 overflow-hidden"
+              expandedId === pastor.id ? "max-h-[500px]" : "max-h-10 overflow-hidden"
             }`}>
               <p className="whitespace-pre-line">{pastor.bio}</p>
               
               {/* Gradient Overlay when collapsed */}
-              {expandedId !== pastor.name && (
+              {expandedId !== pastor.id && (
                 <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent" />
               )}
             </div>
             
             <span className="text-xs font-bold text-blue-600 mt-2 block hover:underline">
-              {expandedId === pastor.name ? t.pastors.show_less : t.pastors.show_more }
+              {expandedId === pastor.id ? t.pastors.show_less : t.pastors.show_more }
             </span>
           </div>
         )}

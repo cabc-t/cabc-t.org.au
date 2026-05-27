@@ -89,7 +89,6 @@ export default async function HomePage({
                 key={index}
                 pastor={detail}
                 locale={locale}
-                isSummary={true} // <--- Hides bio, shows link
               />
             ))}
           </div>
