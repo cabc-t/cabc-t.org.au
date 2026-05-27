@@ -36,13 +36,13 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
       className="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full scroll-mt-24"
     >
       <div className="aspect-[4/5] bg-gray-200 relative overflow-hidden rounded-t-xl">
-        <Image
+        {pastor.photo && <Image
           src={pastor.photo}
           alt={pastor.name}
           fill // Fills the aspect-ratio container
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover"
-        />
+        />}
       </div>
       
       <div 
