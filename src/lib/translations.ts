@@ -112,7 +112,6 @@ export const translations = {
         {
           name: "Nathan Kwok",
           title: "English Congregation Pastor",
-          titleTc: "英語堂傳道",
           photo: "/images/nathan.png",
           bio: "Nathan grew up in the Hills area and has been part of CABC-T from a young age. After working as a chartered accountant for five years, he left that career to complete a Master of Divinity at Morling College. He then served at a small church in Five Dock for seven years before being called by God to return and serve as the English Pastor at CABC-T in July 2022. Nathan loves helping others find joy in Jesus and has a deep passion for music and worship. He believes that, in every stage of life, each person has a deep need for Jesus and a meaningful relationship with Him. At home, Nathan and his wife Jess have two young children, a lively three-year-old boy and a cheeky one-year-old girl. As a family, they enjoy the rhythms of life together, from playtime and walks around the neighbourhood to the everyday joys and chaos of raising young kids. Nathan and Jess would love to chat with you, whether you have questions about Jesus, faith, or simply want to connect. Feel free to reach out any time!",
         },
