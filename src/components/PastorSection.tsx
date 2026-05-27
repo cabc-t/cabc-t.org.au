@@ -15,6 +15,7 @@ export interface PastorData {
 }
 
 interface PastorCardProps {
+  id: number;
   pastor: PastorData;
   locale: LanguageCode;
   isSummary?: boolean;
