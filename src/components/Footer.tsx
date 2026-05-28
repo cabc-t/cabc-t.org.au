@@ -1,13 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { getTranslations } from "@/lib/translations";
-import { useClientLocale } from "./ClientLocale";
+import { type LanguageCode, LocaleProps } from "@/lib/i18n";
+import { getTranslations, type Translations } from "@/lib/translations";
 
-export function Footer() {
-  const locale = useClientLocale();
-  const t = getTranslations(locale);
-
+export function Footer({ locale }: LocaleProps) {
+  const t: Translations = getTranslations(locale);
+  
   const currentYear = new Date().getFullYear();
 
   return (
