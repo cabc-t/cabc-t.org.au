@@ -326,7 +326,7 @@ export function RegularEvents({ locale }: LocaleProps) {
           ) : (
             <tr>
               <td colSpan={5} className="py-12 text-center bg-slate-50 rounded-xl border-2 border-dashed border-slate-200">
-                <p>No events found matching these filters.</p>
+                <p>{t.filters.no_events}</p>
               </td>
             </tr>
           )}

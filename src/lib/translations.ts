@@ -10,6 +10,7 @@ export const translations = {
       category: "Category",
       language: "Language",
       reset: "Reset Filters",
+      no_events: "No events found matching these filters.",
     },
     nav: {
       home: "Home",
@@ -172,6 +173,7 @@ export const translations = {
       category: "類別",
       language: "語言",
       reset: "重置篩選",
+      no_events: "未找到符合這些篩選條件的事件。",
     },
     nav: {
       home: "主頁",
@@ -334,6 +336,7 @@ export const translations = {
       category: "类别",
       language: "语言",
       reset: "重置筛选",
+      no_events: "未找到符合这些筛选条件的事件。",
     },
     nav: {
       home: "首页",
