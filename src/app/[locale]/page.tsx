@@ -12,6 +12,12 @@ import CellSection from "@/components/CellSection";
 import PastorSection from "@/components/PastorSection";
 import AboutSection from "@/components/AboutSection";
 
+export function generateStaticParams() {
+  return Object.keys(languages).map((locale) => ({
+    locale: locale,
+  }));
+}
+
 export default async function HomePage({
   params,
 }: {
