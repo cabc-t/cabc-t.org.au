@@ -180,6 +180,7 @@ export function Announcements({ locale, showTitle = false }: AnnouncementsProps)
               {announcements.map((_, index) => (
                 <button
                   key={index}
+                  aria-label={`Go to slide ${index + 1}`}
                   onClick={() => scrollToIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     index === activeIndex 
@@ -196,6 +197,7 @@ export function Announcements({ locale, showTitle = false }: AnnouncementsProps)
       {/* Modal */}
       {selectedAnnouncement && (
         <div
+          role="dialog" aria-modal="true" aria-labelledby="modal-title" 
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
           onClick={() => setSelectedAnnouncement(null)}
         >
@@ -208,7 +210,7 @@ export function Announcements({ locale, showTitle = false }: AnnouncementsProps)
               bg-gradient-to-br ${tileColors[announcements.findIndex(a => a.id === selectedAnnouncement.id) % tileColors.length]}
             `}>
               <div className="flex items-start justify-between">
-                <h3 className="text-white text-2xl font-bold pr-8">
+                <h3 id="modal-title" className="text-white text-2xl font-bold pr-8">
                   {selectedAnnouncement.title}
                 </h3>
                 <button
