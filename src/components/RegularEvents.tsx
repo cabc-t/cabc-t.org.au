@@ -215,8 +215,8 @@ export function RegularEvents({ locale }: LocaleProps) {
             
             {/* Day Filter */}
             <div className="w-full md:w-auto md:min-w-[200px]">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">{t.filters.by_day}</label>
-              <div className="flex flex-wrap gap-2">
+              <label htmlFor="day-filter" className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">{t.filters.by_day}</label>
+              <div id="day-filter" className="flex flex-wrap gap-2">
 {/*
                 {days.map(day => (
                   <button
@@ -324,10 +324,11 @@ export function RegularEvents({ locale }: LocaleProps) {
               <EventTableRow key={event.id} event={event} />
             ))
           ) : (
-            <div className="col-span-full py-12 text-center bg-slate-50 rounded-xl border-2 border-dashed border-slate-200">
-              <Filter className="w-10 h-10 mx-auto text-slate-300 mb-3" />
-              <p className="text-slate-500 font-medium">No events found matching these filters.</p>
-            </div>
+            <tr>
+              <td colSpan={5} className="py-12 text-center bg-slate-50 rounded-xl border-2 border-dashed border-slate-200">
+                <p>No events found matching these filters.</p>
+              </td>
+            </tr>
           )}
         </tbody>
       </table>
