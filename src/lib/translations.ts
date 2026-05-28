@@ -94,11 +94,9 @@ export const translations = {
     smallGroups: {
       title: "Grow Through Small Groups",
       desc: "Dive deeper in faith together",
-      diveDeeper: "Dive Deeper in Faith",
-      diveDeeperDesc: "Share life, study the Bible, and pray together in a supportive environment.",
-      encourage: "Encourage One Another",
-      encourageDesc: "Build lasting connections, extend a helping hand in times of need",
-      encourage2Desc: "Encourage one another in your spiritual journey",
+      deeper1: "Share life, study the Bible, and pray together in a supportive environment.",
+      deeper2: "Build lasting connections, extend a helping hand in times of need",
+      deeper3: "Encourage one another in your spiritual journey",
     },
     about: {
       title: "Who Are We",
@@ -196,8 +194,8 @@ export const translations = {
     },
     community: {
       title: "多元社群",
-      multicultural: "多元文化根源",
-      multiculturalDesc: "我們歡迎英語、普通話和粵語使用者。",
+      multicultural: "多元文化",
+      multiculturalDesc: "我們歡迎英語、普通話和粵語的人士。",
       inclusive: "包容的氛圍",
       inclusiveDesc: "從兒童到青年到長者，都能在這裡找到家的感覺。",
       welcoming: "溫馨接待",
@@ -258,11 +256,9 @@ export const translations = {
     smallGroups: {
       title: "細胞小組",
       desc: "在信仰中更深入",
-      diveDeeper: "更深的信仰",
-      diveDeeperDesc: "在支持的環境中分享生活、研究聖經、一起祈禱",
-      encourage: "彼此鼓勵",
-      encourageDesc: "建立持久的聯繫，在需要的時候伸出援手",
-      encourage2Desc: "在靈性旅程中彼此鼓勵",
+      deeper1: "在支持的環境中分享生活、研究聖經、一起祈禱",
+      deeper2: "建立持久的聯繫，在需要的時候伸出援手",
+      deeper3: "在靈性旅程中彼此鼓勵",
     },
     about: {
       title: "我們是誰",
@@ -360,8 +356,8 @@ export const translations = {
     },
     community: {
       title: "多元社区",
-      multicultural: "多元文化根源",
-      multiculturalDesc: "我们欢迎英语、普通话和粤语使用者。",
+      multicultural: "多元文化",
+      multiculturalDesc: "我们欢迎英语、普通话和粤语的人士。",
       inclusive: "包容的氛围",
       inclusiveDesc: "从儿童到青年到长者，都能在这里找到家的感觉。",
       welcoming: "温馨接待",
@@ -422,11 +418,9 @@ export const translations = {
     smallGroups: {
       title: "细胞小组",
       desc: "在信仰中更深入",
-      diveDeeper: "更深的信仰",
-      diveDeeperDesc: "在支持的环境中分享生活、研究圣经、一起祷告",
-      encourage: "彼此鼓励",
-      encourageDesc: "建立持久的联系，在需要的时候伸出援手",
-      encourage2Desc: "在灵性旅程中彼此鼓励",
+      deeper1: "在支持的环境中分享生活、研究圣经、一起祷告",
+      deeper2: "建立持久的联系，在需要的时候伸出援手",
+      deeper3: "在灵性旅程中彼此鼓励",
     },
     about: {
       title: "我们是谁",

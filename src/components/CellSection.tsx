@@ -25,7 +25,7 @@ export function CellSection({ locale }: { locale: LanguageCode }) {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.diveDeeperDesc}</p>
+                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.deeper1}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -35,7 +35,7 @@ export function CellSection({ locale }: { locale: LanguageCode }) {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.encourageDesc}</p>
+                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.deeper2}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -48,7 +48,7 @@ export function CellSection({ locale }: { locale: LanguageCode }) {
                     </svg>
                   </div>
                   <div>
-                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.encourage2Desc}</p>
+                    <p className="text-gray-700 leading-relaxed">{t.smallGroups.deeper3}</p>
                   </div>
                 </div>
               </div>
