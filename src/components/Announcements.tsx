@@ -141,9 +141,11 @@ export function Announcements({ locale, showTitle = false }: AnnouncementsProps)
                 >
                   {announcement.image_url ? (
                     <div className="relative w-full h-full flex flex-col justify-between">
-                      <img
+                      <Image 
                         src={announcement.image_url}
                         alt={announcement.title}
+                        width={500}
+                        height={500}
                         className="absolute inset-0 w-full h-full object-cover"
                       />
                       <div className="absolute inset-0 bg-black/75" />
@@ -222,9 +224,11 @@ export function Announcements({ locale, showTitle = false }: AnnouncementsProps)
             </div>
             <div className="p-6 overflow-y-auto max-h-[50vh]">
               {selectedAnnouncement.image_url && (
-                <img
+                <Image
                   src={selectedAnnouncement.image_url}
                   alt={selectedAnnouncement.title}
+                  width={500}
+                  height={500}
                   className="w-full h-auto rounded-lg mb-4"
                 />
               )}

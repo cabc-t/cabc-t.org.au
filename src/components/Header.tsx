@@ -8,6 +8,7 @@ import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { useClientLocale } from "./ClientLocale";
 import { is } from "date-fns/locale";
+import Image from "next/image";
 
 export function Header() {
   const locale = useClientLocale();
@@ -35,9 +36,11 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href={`/${locale}`} className="flex items-center gap-2 group">
-            <img 
+            <Image 
               src="/images/cabct-logo-raw.png.webp" 
               alt="CABC Thornleigh" 
+              width={500}
+              height={500}
               className="h-10 w-auto object-contain"
             />
           </Link>

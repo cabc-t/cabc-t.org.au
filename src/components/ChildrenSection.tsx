@@ -1,5 +1,6 @@
 import { type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
+import Image from "next/image";
 
 export function ChildrenSection({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
@@ -37,9 +38,11 @@ export function ChildrenSection({ locale }: { locale: LanguageCode }) {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img 
+              <Image 
                 src="/images/creatvise-dMVYJDwrBrU-unsplash.jpg.webp"
                 alt="Children's Ministry" 
+                width={500}
+                height={500}
                 className="w-full h-80 lg:h-[400px] object-cover"
               />
             </div>

@@ -1,5 +1,6 @@
 import { type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
+import Image from "next/image";
 
 export function CellSection({ locale }: { locale: LanguageCode }) {
   const t = getTranslations(locale);
@@ -53,9 +54,11 @@ export function CellSection({ locale }: { locale: LanguageCode }) {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden shadow-xl">
-              <img 
+              <Image 
                 src="/images/nemo-unsplash.jpg.webp" 
                 alt="Small Groups" 
+                width={500}
+                height={500}
                 className="w-full h-80 lg:h-[420px] object-cover"
               />
             </div>
