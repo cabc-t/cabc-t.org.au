@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import { ChevronDown, ChevronUp, MapPin, Info, Clock, Globe, Tag, Calendar, Loader2, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
 
 const IconMap: Record<string, React.ReactNode> = {
@@ -24,9 +24,9 @@ const IconMap: Record<string, React.ReactNode> = {
 export function EventTableRow({ event }) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
-  const toggleRow = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  const toggleRow = useCallback((id: string) => {
+    setExpandedId((prevId) => (prevId === id ? null : id));
+  }, []); // Empty array means it never needs to be recreated
   
   return (
     <>
