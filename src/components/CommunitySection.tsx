@@ -32,5 +32,3 @@ export function CommunitySection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default CommunitySection;

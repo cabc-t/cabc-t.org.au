@@ -50,5 +50,3 @@ export function ChildrenSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default ChildrenSection;

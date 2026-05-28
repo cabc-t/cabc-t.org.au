@@ -47,5 +47,3 @@ export function SeniorSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default SeniorSection;

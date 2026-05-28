@@ -27,5 +27,3 @@ export function HeroSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default HeroSection;

@@ -35,5 +35,3 @@ export function ServiceSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default ServiceSection;

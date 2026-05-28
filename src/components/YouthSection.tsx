@@ -56,5 +56,3 @@ export function YouthSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default YouthSection;

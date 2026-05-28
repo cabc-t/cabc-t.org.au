@@ -89,5 +89,3 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
     </div>
   );
 }
-
-export default PastorSection;

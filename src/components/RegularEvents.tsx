@@ -336,5 +336,3 @@ export function RegularEvents({ locale }: LocaleProps) {
       </div>
   );
 };
-
-export default RegularEvents;

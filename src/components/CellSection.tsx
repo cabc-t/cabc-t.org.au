@@ -66,5 +66,3 @@ export function CellSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default CellSection;

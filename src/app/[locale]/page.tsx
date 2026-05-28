@@ -1,16 +1,16 @@
 import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { Announcements } from "@/components/Announcements";
-import RegularEvents from "@/components/RegularEvents";
-import HeroSection from "@/components/HeroSection";
-import CommunitySection from "@/components/CommunitySection";
-import ServiceSection from "@/components/ServiceSection";
-import ChildrenSection from "@/components/ChildrenSection";
-import YouthSection from "@/components/YouthSection";
-import SeniorSection from "@/components/SeniorSection";
-import CellSection from "@/components/CellSection";
-import PastorSection from "@/components/PastorSection";
-import AboutSection from "@/components/AboutSection";
+import { RegularEvents } from "@/components/RegularEvents";
+import { HeroSection } from "@/components/HeroSection";
+import { CommunitySection } from "@/components/CommunitySection";
+import { ServiceSection } from "@/components/ServiceSection";
+import { ChildrenSection } from "@/components/ChildrenSection";
+import { YouthSection } from "@/components/YouthSection";
+import { SeniorSection } from "@/components/SeniorSection";
+import { CellSection } from "@/components/CellSection";
+import { PastorSection } from "@/components/PastorSection";
+import { AboutSection } from "@/components/AboutSection";
 
 export function generateStaticParams() {
   return Object.keys(languages).map((locale) => ({

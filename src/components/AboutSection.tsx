@@ -17,5 +17,3 @@ export function AboutSection({ locale }: LocaleProps) {
         </div>
   );
 };
-
-export default AboutSection;
