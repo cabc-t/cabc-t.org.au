@@ -21,7 +21,6 @@ interface PastorCardProps {
 
 export function PastorSection({ id, pastor, locale }: PastorCardProps) {
   const t = getTranslations(locale);
-  const anchorId = "pastors";
 
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
@@ -31,7 +30,6 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
 
   return (
     <div 
-      id={anchorId} 
       className="bg-gray-50 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 flex flex-col h-full scroll-mt-24"
     >
       <div className="aspect-[4/5] bg-gray-200 relative overflow-hidden rounded-t-xl">
