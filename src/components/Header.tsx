@@ -7,7 +7,6 @@ import { Menu, X } from "lucide-react";
 import { languages, type LanguageCode } from "@/lib/i18n";
 import { getTranslations } from "@/lib/translations";
 import { useClientLocale } from "./ClientLocale";
-import { is } from "date-fns/locale";
 import Image from "next/image";
 
 export function Header() {

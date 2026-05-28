@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { type LanguageCode } from "@/lib/i18n";
 import Image from "next/image";
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { getTranslations } from "@/lib/translations";
 
 // Adjust these types to match your actual translation data structure

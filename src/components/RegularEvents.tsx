@@ -181,15 +181,6 @@ export function RegularEvents({ locale }: { locale: LanguageCode }) {
     fetchEvents();
   }, [supabase, locale]); // Refetch if locale changes!
   
-  const filteredEvents = useMemo(() => {
-    return allEvents.filter(event => {
-      const dayMatch = selectedDay === "All" || event.day_text === selectedDay;
-      const tagMatch = selectedTag === "All" || event.tag_key === selectedTag;
-      const languageMatch = selectedLanguage === "All" || event.language_label === selectedLanguage;
-      return dayMatch && tagMatch && languageMatch;
-    });
-  }, [allEvents, selectedDay, selectedTag, selectedLanguage]);
-
   const sortedEvents = useMemo(() => {
     // 1. Start with your filtered array
     const filtered = allEvents.filter(event => {
