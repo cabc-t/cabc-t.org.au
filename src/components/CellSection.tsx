@@ -13,7 +13,7 @@ export function CellSection({ locale }: { locale: LanguageCode }) {
                 {t.smallGroups.title}
               </h2>
               <p className="mt-4 text-lg text-gray-600">
-                {locale === "en" ? "Dive deeper in faith together" : locale === "tc" ? "在信仰中更深入" : "在信仰中更深入"}
+                {t.smallGroups.desc}
               </p>
               <div className="mt-6 w-16 h-1 bg-[#263880] rounded-full"></div>
               <div className="mt-10 space-y-6">

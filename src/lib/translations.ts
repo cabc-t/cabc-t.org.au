@@ -6,6 +6,10 @@ export const translations = {
     filters: {
       all: "All",
       day: ["Sunday", "Saturday", "Friday", "Thursday", "Wednesday", "Tuesday", "Monday"],
+      by_day: "Filter by Day",
+      category: "Category",
+      language: "Language",
+      reset: "Reset Filters",
     },
     nav: {
       home: "Home",
@@ -89,6 +93,7 @@ export const translations = {
     },
     smallGroups: {
       title: "Grow Through Small Groups",
+      desc: "Dive deeper in faith together",
       diveDeeper: "Dive Deeper in Faith",
       diveDeeperDesc: "Share life, study the Bible, and pray together in a supportive environment.",
       encourage: "Encourage One Another",
@@ -147,6 +152,7 @@ export const translations = {
       readMore: "Read More",
       noNews: "No news at this time.",
       viewAll: "View All",
+      download_pdf: "Download PDF",
     },
     regularEvents: {
       title: "All regular gatherings in a glance",
@@ -164,6 +170,10 @@ export const translations = {
     filters: {
       all: "全部",
       day: ["星期日", "星期六", "星期五", "星期四", "星期三", "星期二", "星期一"],
+      by_day: "日期",
+      category: "類別",
+      language: "語言",
+      reset: "重置篩選",
     },
     nav: {
       home: "主頁",
@@ -247,6 +257,7 @@ export const translations = {
     },
     smallGroups: {
       title: "細胞小組",
+      desc: "在信仰中更深入",
       diveDeeper: "更深的信仰",
       diveDeeperDesc: "在支持的環境中分享生活、研究聖經、一起祈禱",
       encourage: "彼此鼓勵",
@@ -305,6 +316,7 @@ export const translations = {
       readMore: "閱讀更多",
       noNews: "暫時沒有資訊。",
       viewAll: "查看全部",
+      download_pdf: "下載PDF",
     },
     regularEvents: {
       title: "定期活動一覽",
@@ -322,6 +334,10 @@ export const translations = {
     filters: {
       all: "全部",
       day: ["星期日", "星期六", "星期五", "星期四", "星期三", "星期二", "星期一"],
+      by_day: "日期",
+      category: "类别",
+      language: "语言",
+      reset: "重置筛选",
     },
     nav: {
       home: "首页",
@@ -405,6 +421,7 @@ export const translations = {
     },
     smallGroups: {
       title: "细胞小组",
+      desc: "在信仰中更深入",
       diveDeeper: "更深的信仰",
       diveDeeperDesc: "在支持的环境中分享生活、研究圣经、一起祷告",
       encourage: "彼此鼓励",
@@ -463,6 +480,7 @@ export const translations = {
       readMore: "阅读更多",
       noNews: "暂时没有资讯。",
       viewAll: "查看全部",
+      download_pdf: "下载PDF",
     },
     regularEvents: {
       title: "定期活动一览",

@@ -247,7 +247,7 @@ export function RegularEvents({ locale }: { locale: LanguageCode }) {
             
             {/* Day Filter */}
             <div className="w-full md:w-auto md:min-w-[200px]">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Filter by Day</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">{t.filters.by_day}</label>
               <div className="flex flex-wrap gap-2">
 {/*
                 {days.map(day => (
@@ -279,7 +279,7 @@ export function RegularEvents({ locale }: { locale: LanguageCode }) {
 
             {/* Tag Filter */}
             <div className="w-full">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Category</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">{t.filters.category}</label>
 {/*
               <select 
                 value={selectedTag}
@@ -308,7 +308,7 @@ export function RegularEvents({ locale }: { locale: LanguageCode }) {
 
             {/* Language Filter */}
             <div className="w-full md:w-auto md:min-w-[200px]">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">Language</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-3 block">{t.filters.language}</label>
 {/*
               <select 
                 value={selectedLanguage}
@@ -342,7 +342,7 @@ export function RegularEvents({ locale }: { locale: LanguageCode }) {
               onClick={() => { setSelectedDay("All"); setSelectedTag("All"); setSelectedLanguage("All"); }}
               className="mt-4 flex items-center text-xs text-blue-600 font-semibold hover:text-blue-800"
             >
-              <X className="w-3 h-3 mr-1" /> Reset Filters
+              <X className="w-3 h-3 mr-1" />{t.filters.reset}
             </button>
           )}
         </div>
