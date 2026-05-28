@@ -494,3 +494,8 @@ export type Translations = typeof translations.en;
 export function getTranslations(locale: LanguageCode): Translations {
   return translations[locale] as Translations;
 }
+
+export interface LocaleProps {
+  locale: LanguageCode;
+  t?: Translations; 
+}

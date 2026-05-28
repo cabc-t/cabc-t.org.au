@@ -2,9 +2,9 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { createClient } from "@/lib/supabase/client";
-import { type LanguageCode } from "@/lib/i18n";
+import { type LanguageCode, LocaleProps } from "@/lib/i18n";
 import { ChevronDown, ChevronUp, MapPin, Info, Clock, Globe, Tag, Calendar, Loader2, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
-import { getTranslations } from "@/lib/translations";
+import { getTranslations, type Translations } from "@/lib/translations";
 
 const IconMap: Record<string, React.ReactNode> = {
   Users: <Users className="w-5 h-5" />,
@@ -37,8 +37,8 @@ interface Event {
   icon_name: string;
 }
 
-export function RegularEvents({ locale }: { locale: LanguageCode }) {
-  const t = getTranslations(locale);
+export function RegularEvents({ locale }: LocaleProps) {
+  const t: Translations = getTranslations(locale);
 
   const supabase = useMemo(() => createClient(), []);
   

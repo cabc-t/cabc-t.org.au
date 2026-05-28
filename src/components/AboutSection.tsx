@@ -1,8 +1,8 @@
-import { type LanguageCode } from "@/lib/i18n";
-import { getTranslations } from "@/lib/translations";
+import { type LanguageCode, type Translations } from "@/lib/i18n";
+import { getTranslations, LocaleProps } from "@/lib/translations";
 
-export function AboutSection({ locale }: { locale: LanguageCode }) {
-  const t = getTranslations(locale);
+export function AboutSection({ locale }: LocaleProps) {
+  const t: Translations = getTranslations(locale);
 
   return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

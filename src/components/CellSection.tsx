@@ -1,9 +1,9 @@
-import { type LanguageCode } from "@/lib/i18n";
-import { getTranslations } from "@/lib/translations";
+import { type LanguageCode, LocaleProps } from "@/lib/i18n";
+import { getTranslations, type Translations } from "@/lib/translations";
 import Image from "next/image";
 
-export function CellSection({ locale }: { locale: LanguageCode }) {
-  const t = getTranslations(locale);
+export function CellSection({ locale }: LocaleProps) {
+  const t: Translations = getTranslations(locale);
 
   return (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

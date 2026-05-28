@@ -1,16 +1,16 @@
 "use client";
 
 import { format } from "date-fns";
-import { type LanguageCode } from "@/lib/i18n";
-import { getTranslations } from "@/lib/translations";
+import { type LanguageCode, LocaleProps } from "@/lib/i18n";
+import { getTranslations, type Translations } from "@/lib/translations";
 import { useAnnouncements, type Announcement } from "@/lib/hooks/useAnnouncements";
 import DOMPurify from "dompurify";
 
-export default function AnnouncementsClient({ locale }: { locale: LanguageCode }) {
+export default function AnnouncementsClient({ locale }: LocaleProps) {
+  const t: Translations = getTranslations(locale);
+  
   // No need to unwrap params here, you already have the string!
   const { announcements, loading, error } = useAnnouncements({ locale });
-
-  const t = getTranslations(locale);
 
   const tileColors = [
     "from-amber-500 to-orange-600",

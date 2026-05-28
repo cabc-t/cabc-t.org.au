@@ -16,7 +16,7 @@ interface AnnouncementsProps {
 }
 
 export function Announcements({ locale, showTitle = false }: AnnouncementsProps) {
-  const t = getTranslations(locale);
+  const t: Translations = getTranslations(locale);
   const { announcements, loading, error } = useAnnouncements({ locale });
   const [selectedAnnouncement, setSelectedAnnouncement] = useState<Announcement | null>(null);
   const [activeIndex, setActiveIndex] = useState(0);
