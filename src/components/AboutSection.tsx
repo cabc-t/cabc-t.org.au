@@ -1,5 +1,5 @@
-import { type LanguageCode, type Translations } from "@/lib/i18n";
-import { getTranslations, LocaleProps } from "@/lib/translations";
+import { type LanguageCode } from "@/lib/i18n";
+import { getTranslations, type Translations, LocaleProps } from "@/lib/translations";
 
 export function AboutSection({ locale }: LocaleProps) {
   const t: Translations = getTranslations(locale);

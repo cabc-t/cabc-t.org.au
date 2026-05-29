@@ -2,30 +2,18 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import { createClient } from "@/lib/supabase/client";
-import { type LanguageCode, LocaleProps } from "@/lib/i18n";
-import { getTranslations, type Translations } from "@/lib/translations";
+import { type LanguageCode } from "@/lib/i18n";
+import { getTranslations, type Translations, LocaleProps } from "@/lib/translations";
 import { ChevronDown, ChevronUp, Loader2, X } from 'lucide-react';
+import { EventProps } from "@/lib/event";
 import { EventTableRow } from "./EventTableRow";
-
-interface Event {
-  id: string;
-  title: string;
-  day_text: string;
-  time_text: string;
-  location: string;
-  language_label: string;
-  description: string;
-  tag_key: string;
-  tag_label: string;
-  icon_name: string;
-}
 
 export function RegularEvents({ locale }: LocaleProps) {
   const t: Translations = getTranslations(locale);
 
   const supabase = useMemo(() => createClient(), []);
   
-  const [allEvents, setAllEvents] = useState<Event[]>([]);
+  const [allEvents, setAllEvents] = useState<EventProps[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   
   // State for Filters

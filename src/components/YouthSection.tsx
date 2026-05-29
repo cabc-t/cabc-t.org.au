@@ -1,5 +1,5 @@
-import { type LanguageCode, LocaleProps } from "@/lib/i18n";
-import { getTranslations, type Translations } from "@/lib/translations";
+import { type LanguageCode } from "@/lib/i18n";
+import { getTranslations, type Translations, LocaleProps } from "@/lib/translations";
 
 export function YouthSection({ locale }: LocaleProps) {
   const t: Translations = getTranslations(locale);

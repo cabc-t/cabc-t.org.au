@@ -3,11 +3,12 @@
 import Link from "next/link";
 import { format } from "date-fns";
 import { type LanguageCode } from "@/lib/i18n";
-import { getTranslations } from "@/lib/translations";
+import { getTranslations, type Translations } from "@/lib/translations";
 import { useAnnouncements, type Announcement } from "@/lib/hooks/useAnnouncements";
 import { useEffect, useState, useRef } from "react";
 import { X } from "lucide-react";
 import DOMPurify from "dompurify";
+import Image from "next/image";
 
 interface AnnouncementsProps {
   locale: LanguageCode;

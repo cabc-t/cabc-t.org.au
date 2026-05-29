@@ -1,5 +1,5 @@
-import { type LanguageCode, LocaleProps } from "@/lib/i18n";
-import { getTranslations, type Translations } from "@/lib/translations";
+import { type LanguageCode } from "@/lib/i18n";
+import { getTranslations, type Translations, LocaleProps } from "@/lib/translations";
 import Image from "next/image";
 
 export function CellSection({ locale }: LocaleProps) {
