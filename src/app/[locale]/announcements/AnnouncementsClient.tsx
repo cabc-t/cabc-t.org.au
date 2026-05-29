@@ -1,8 +1,8 @@
 "use client";
 
 import { format } from "date-fns";
-import { type LanguageCode, LocaleProps } from "@/lib/i18n";
-import { getTranslations, type Translations } from "@/lib/translations";
+import { type LanguageCode } from "@/lib/i18n";
+import { getTranslations, type Translations, LocaleProps } from "@/lib/translations";
 import { useAnnouncements, type Announcement } from "@/lib/hooks/useAnnouncements";
 import DOMPurify from "dompurify";
 
