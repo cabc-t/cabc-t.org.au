@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { type LanguageCode } from "@/lib/i18n";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import "../globals.css"; // Double-check this relative path is still correct!
@@ -21,6 +22,7 @@ type Props = {
 // 3. Keep your async layout
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
+  const safeLocale = locale as LanguageCode;
   
   return (
     <html lang={locale} suppressHydrationWarning>
@@ -37,7 +39,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main className="flex-grow">
           {children}
         </main>
-        <Footer locale={locale} />
+        <Footer locale={safeLocale} />
       </body>
     </html>
   );
