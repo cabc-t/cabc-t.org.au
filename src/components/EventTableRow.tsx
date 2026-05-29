@@ -48,7 +48,7 @@ export function EventTableRow({ event } : EventTableRowProps) {
                 tabIndex={0}
                 role="button"
                 aria-expanded={expandedId === event.id}
-                className="cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 hover:bg-slate-50 transition-all group"className="cursor-pointer hover:bg-slate-50 transition-all group"
+                className="cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue-500 hover:bg-slate-50 transition-all group" className="cursor-pointer hover:bg-slate-50 transition-all group"
               >
                 {/* 1. Event Name */}
                 <td className="py-2 px-2">
