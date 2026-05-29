@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from "react";
 import { ChevronDown, ChevronUp, MapPin, Info, Clock, Globe, Tag, Calendar, Loader2, Users, BookOpen, Coffee, Languages, Filter, X, University, Briefcase, School, TreePalm, BookHeart, Piano, CookingPot, BookMarked, LifeBuoy, FlaskRound, House } from 'lucide-react';
+import { EventProps } from "@/lib/event";
 
 const IconMap: Record<string, React.ReactNode> = {
   Users: <Users className="w-5 h-5" />,
@@ -21,7 +22,11 @@ const IconMap: Record<string, React.ReactNode> = {
   House: <House className="w-5 h-5" />,
 };
 
-export function EventTableRow({ event }) {
+interface EventTableRowProps {
+  event: EventProps;
+}
+
+export function EventTableRow({ event } : EventTableRowProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleRow = useCallback((id: string) => {
