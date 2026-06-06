@@ -66,8 +66,11 @@ export function PastorSection({ id, pastor, locale }: PastorCardProps) {
 
         {pastor.bio && (
           <div className="mt-4 text-sm text-gray-600">
-            <div className={`relative transition-all duration-300 ${
-              expandedId === id ? "max-h-[500px]" : "max-h-10 overflow-hidden"
+            {/* 1. Moved overflow-hidden out of the ternary so it's always active. 
+                2. Increased max-h to 2000px to safely fit long translations.
+                3. (Optional) Slowed duration to 500ms for a smoother long expansion. */}
+            <div className={`relative transition-all duration-500 overflow-hidden ${
+              expandedId === id ? "max-h-[2000px]" : "max-h-10"
             }`}>
               <p className="whitespace-pre-line">{pastor.bio}</p>
               
