@@ -201,7 +201,7 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
         className="w-full h-64 p-5 border-2 rounded-xl mb-4 focus:border-blue-500 outline-none transition font-serif text-lg shadow-inner"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
-        placeholder="1. First announcement content here...&#10;2. Second one here..."
+        placeholder={`1. First announcement content here...\n2. Second one here...`}
       />
       
       <button
