@@ -223,34 +223,13 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
         <div className="mt-10 animate-in fade-in slide-in-from-bottom-4">
           <h2 className="text-lg font-bold mb-4">Review & Fine-Tune</h2>
           <div className="border rounded-xl bg-white shadow-sm overflow-hidden">
-                  
-                                                   
-                                                             
             <table className="w-full">
-                   
-                    
-                   
-                                          
               <thead className="bg-slate-50 border-b">
                 <tr>
                   <th className="p-4 w-12 text-center">Post</th>
-                          
-                                     
-                                             
-                                       
-                                                         
-                                                                                        
-                                                
-                        
-                                                        
-                      
-                       
                   <th className="p-4 w-24 text-center">Priority</th>
                   <th className="p-4 w-48 text-left">Title</th>
                   <th className="p-4 text-left">Content Preview</th>
-                                                                                                         
-                                                                                        
-                       
                 </tr>
               </thead>
               <tbody>
@@ -282,9 +261,6 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
                     </td>
                     <td className="p-4">
                       <div className="text-sm text-slate-600 max-h-20 overflow-y-auto italic">
-                                                                                               
-                                                            
-                               
                         {item.content}
                       </div>
                     </td>
