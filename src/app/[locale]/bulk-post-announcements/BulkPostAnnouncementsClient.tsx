@@ -20,17 +20,11 @@ type ParsedAnnouncement = {
 
 export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
   const supabase = createClient()
-  
   const router = useRouter();
 
   const handleLogout = async () => {
-    // 1. Sign out of Supabase to clear the session cookie
     await supabase.auth.signOut();
-    
-    // 2. Redirect to the localized login page
     router.push(`/${locale}/login`);
-    
-    // 3. Refresh the router to clear any cached authenticated states
     router.refresh();
   };
   
@@ -40,18 +34,17 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
   const [parsedItems, setParsedItems] = useState<ParsedAnnouncement[]>([])
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [message, setMessage] = useState('')
+  
+  // New States for editable global dates
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
 
   // Date Logic Helpers
   const getAnnouncementDates = () => {
     const today = new Date();
-    // We use local methods (getFullYear, getMonth, getDate) 
-    // to avoid UTC conversion shifting the day backward.
-    
     const dayOfWeek = today.getDay(); // 0 = Sun, 6 = Sat
     let startDate = new Date(today);
   
-    // If it's Saturday (6), we start today.
-    // Otherwise, find the upcoming Saturday.
     if (dayOfWeek !== 6) {
       const daysToSat = (6 - dayOfWeek + 7) % 7;
       startDate.setDate(today.getDate() + daysToSat);
@@ -60,7 +53,6 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
     const endDate = new Date(startDate);
     endDate.setDate(startDate.getDate() + 6);
   
-    // Helper to format as YYYY-MM-DD using local time
     const formatLocalIDate = (date: Date) => {
       const y = date.getFullYear();
       const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -81,11 +73,7 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
       return
     }
 
-    // Regex to capture the NUMBER and the CONTENT separately
-    // Matches "1. Text...", "2. Text..." etc.
     const regex = /(?:^|\n)(\d+)\.\s+([\s\S]+?)(?=\n\d+\.\s+|$)/g
-
-    // Use Array.from instead of the spread operator [...]
     const matches = Array.from(inputText.matchAll(regex))
 
     if (matches.length === 0) {
@@ -93,10 +81,16 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
       return
     }
 
+    // 1. Calculate and set the dates into editable inputs
+    const computedDates = getAnnouncementDates()
+    setStartDate(computedDates.start)
+    setEndDate(computedDates.end)
+
+    // 2. Map items
     setParsedItems(matches.map((match, index) => ({
       tempId: index,
       priority: parseInt(match[1], 10),
-      title: match[2].trim().substring(0, 10), // Initial slice                                                         
+      title: match[2].trim().substring(0, 10),                                                                                
       content: match[2].trim(),
       selected: true
     })))
@@ -104,7 +98,6 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
     setMessage(`Ready! ${matches.length} items parsed. Review and edit below.`)
   }
 
-  // Update specific fields in the table
   const updateItem = (tempId: number, field: keyof ParsedAnnouncement, value: any) => {
     setParsedItems(prev => prev.map(item => 
       item.tempId === tempId ? { ...item, [field]: value } : item
@@ -116,11 +109,15 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
       setMessage('Error: No active session found. Please re-login.')
       return
     }
+
+    if (!startDate || !endDate) {
+      setMessage('Error: Please verify that both start and end dates are filled out.')
+      return
+    }
     
     setIsSubmitting(true)
-    const { start, end } = getAnnouncementDates()
 
-    // Map checked items to the table schema
+    // Map checked items using the editable state dates
     const finalData = parsedItems
       .filter(item => item.selected)
       .map(item => ({
@@ -129,9 +126,9 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
         language: language,
         priority: item.priority,
         author_id: userId,
-        start_date: start,
-        end_date: end,
-        visibility_language: [language], // e.g. ['en']
+        start_date: startDate, // Applied globally from editable state
+        end_date: endDate,     // Applied globally from editable state
+        visibility_language: [language], 
       }))
 
     const { error } = await supabase
@@ -141,19 +138,20 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
     if (error) {
       setMessage(`Database Error: ${error.message}`)
     } else {
-      setMessage(`Successfully posted ${finalData.length} items for ${start} to ${end}.`)
+      setMessage(`Successfully posted ${finalData.length} items for ${startDate} to ${endDate}.`)
       setParsedItems([])
       setInputText('')
+      setStartDate('')
+      setEndDate('')
     }
     setIsSubmitting(false)
   }
 
-  return (
+return (
     <div className="max-w-4xl mx-auto p-8 font-sans text-slate-900">
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-black uppercase tracking-tight">Announcement Porter</h1>
 
-        {/* Group the badge and the logout button together */}
         <div className="flex items-center space-x-4">
           <div className="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">
             AO ACCESS
@@ -166,11 +164,9 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
             Logout
           </button>
         </div>
-        
       </div>
 
       <div className="bg-slate-50 border rounded-xl p-6 mb-8 shadow-sm">
-                                 
         <div className="flex flex-col sm:flex-row gap-4 items-end">
           <div className="flex-1 w-full">
             <label className="block text-xs font-bold uppercase text-slate-500 mb-2">Announcement Language</label>
@@ -179,13 +175,12 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
               onChange={(e) => setLanguage(e.target.value as any)}
               className="w-full p-3 border-2 rounded-lg bg-white focus:border-blue-500 outline-none transition"
             >
-            <option value="">-- Choose --</option>
-            <option value="en">English Congregation</option>
-            <option value="tc">Cantonese Congregation</option>
-            <option value="sc">Mandarin Congregation</option>
-          </select>
+              <option value="">-- Choose --</option>
+              <option value="en">English Congregation</option>
+              <option value="tc">Cantonese Congregation</option>
+              <option value="sc">Mandarin Congregation</option>
+            </select>
           </div>
-          {/* Info Box */}
           <div className="flex-1 text-xs text-slate-500 pb-2">
             <strong>Auto-calculations:</strong><br />
             Start: Upcoming Sat | End: Next Fri | Title: First 10 chars | Priority: From list number.
@@ -193,11 +188,7 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
         </div>
       </div>
 
-      {/* Input Section */}
-
       <textarea
-                            
-                 
         className="w-full h-64 p-5 border-2 rounded-xl mb-4 focus:border-blue-500 outline-none transition font-serif text-lg shadow-inner"
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
@@ -210,18 +201,43 @@ export default function BulkPostAnnouncementsClient({ locale, userId }: Props) {
       >
         Parse Content for Review
       </button>
-            
 
       {message && (
         <div className={`mt-6 p-4 rounded-lg font-medium ${message.includes('Error') ? 'bg-red-50 text-red-700' : 'bg-emerald-50 text-emerald-700'}`}>
           {message}
         </div>
       )}
-
                            
       {parsedItems.length > 0 && (
         <div className="mt-10 animate-in fade-in slide-in-from-bottom-4">
           <h2 className="text-lg font-bold mb-4">Review & Fine-Tune</h2>
+          
+          {/* New Editable Global Date Controls */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6 bg-slate-50 p-5 border rounded-xl shadow-sm">
+            <div>
+              <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                Start Date (Applies to all)
+              </label>
+              <input 
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                className="w-full p-3 border rounded-lg bg-white outline-none focus:border-blue-500 font-medium transition"
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold uppercase text-slate-500 mb-2">
+                End Date (Applies to all)
+              </label>
+              <input 
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                className="w-full p-3 border rounded-lg bg-white outline-none focus:border-blue-500 font-medium transition"
+              />
+            </div>
+          </div>
+
           <div className="border rounded-xl bg-white shadow-sm overflow-hidden">
             <table className="w-full">
               <thead className="bg-slate-50 border-b">
