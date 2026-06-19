@@ -135,7 +135,7 @@ export const translations = {
         {
           name: "Kenny Tse",
           title: "Cantonese Congregation Pastor",
-          photo: "/images/kenny3.jpg",
+          photo: "/images/kenny3.jpeg",
           bio: "Kenny loves exploring vocation and calling with others and enjoys walking through the city with his wife, Beeatrice, reflecting on God’s guidance in everyday life. He enjoys running, reading history, and watching films, and believes that faith is not merely a set of ideas, but something to be lived out in daily life.\n\nBorn in Hong Kong, Kenny became a Christian in 1995 and was called to ministry after a short-term mission trip to Japan in 1998. After graduating from university, he joined Power To Change (CRU) in Hong Kong, where he served university students and young professionals for many years, promoting creative evangelism and discipleship. In 2008, he and his wife entered the China Graduate School of Theology for theological training. After completing his Master of Divinity, he became firmly convinced of a ministry calling centred on missions.\n\nHe has served in the Christian and Missionary Alliance, the Evangelical Free Church, and the Baptist Church in Hong Kong, continuing to be actively involved in pastoral care, evangelism, and mission mobilisation. He is also experienced in integrating field ministry experience to help churches grow and be renewed. In 2025, he and his wife moved to Australia to care for family members and enter a season of rest and equipping. Kenny began serving at the Chinese and Australian Baptist Church – Thornleigh in May 2026. He looks forward to meeting new friends, exploring faith together, and helping believers live out their faith and calling in everyday life.",
         },
       ]
@@ -298,7 +298,7 @@ export const translations = {
         {
           name: "謝文健",
           title: "粵語堂傳道",
-          photo: "/images/kenny3.jpg",
+          photo: "/images/kenny3.jpeg",
           bio: "Kenny熱愛與人一起探索召命，也喜歡與太太 Beeatrice 遊走城市，在日常中細味神的帶領。他喜歡跑步、研究歷史、看電影，深信信仰不只是道理，更是在生活中活出來。Kenny 出生於香港，1995 年信主，1998 年在日本短宣後蒙召。大學畢業後加入香港學園傳道會，長年服事大專及初職群體，推動創意佈道與門徒訓練。2008 年與太太進入中國神學研究院接受裝備，完成道學碩士後，確立以宣教為牧養主線的召命，他先後在宣道會、播道會及浸信會服事，持續投入牧養、佈道及宣教推動，也擅長整合工場經驗，活化教會。他與太太2025 年移居澳洲，照顧家人，也進入安息與裝備的季節。Kenny 於 2026 年 5月開始在華澳浸信會展信堂服事，他期待與新朋友探索信仰，並幫助信徒在日常生活中活出信仰，活出召命！",
         },
       ]
@@ -461,7 +461,7 @@ export const translations = {
         {
           name: "谢文健",
           title: "粤语堂传道",
-          photo: "/images/kenny3.jpg",
+          photo: "/images/kenny3.jpeg",
           bio: "Kenny热爱与人一起探索召命，也喜欢与太太 Beeatrice 游走城市，在日常中细味神的带领。他喜欢跑步、研究历史、看电影，深信信仰不只是道理，更是在生活中活出来。 Kenny 出生于香港，1995 年信主，1998 年在日本短宣后蒙召。大学毕业后加入香港学园传道会，长年服事大专及初职群体，推动创意布道与门徒训练。 2008 年与太太进入中国神学研究院接受装备，完成道学硕士后，确立以宣教为牧养主线的召命，他先后在宣道会、播道会及浸信会服事，持续投入牧养、布道及宣教推动，也擅长整合工场经验，活化教会。他与太太2025 年移居澳洲，照顾家人，也进入安息与装备的季节。 Kenny 于 2026 年 5月开始在华澳浸信会展信堂服事，他期待与新朋友探索信仰，并帮助信徒在日常生活中活出信仰，活出召命！",
         },
       ]
