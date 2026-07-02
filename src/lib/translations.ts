@@ -124,7 +124,7 @@ export const translations = {
           name: "Felix Siu",
           title: "Cantonese Congregation Pastor",
           photo: "/images/felix.jpg",
-          bio: "",
+          bio: "Felix was born in Hong Kong and grew up in a Christian family. From a young age, his aunt faithfully encouraged him to read the Bible, attend church, and deepen his relationship with God. While studying at university, Felix sensed God's call to prepare for ministry through theological training. Years later, God confirmed His calling to shepherd His Church, particularly within the Cantonese-speaking community. In response to this calling, Felix pursued theological studies to equip himself for pastoral ministry.\n\nAfter completing a Master of Geotechnical Engineering, Felix worked as an engineer in Hong Kong for six years before returning to Sydney to undertake a Master of Divinity at the Chinese Theological College Australia. Before joining CABC-T, he served in youth ministry in both Hong Kong and Sydney, and was actively involved in DrEAM Drama Ministry for more than ten years, using creative arts to share the gospel and encourage believers. Felix began serving at CABC-T as a Student Observer in July 2021, became a Ministry Worker in August 2022, and has been serving as the full-time Cantonese Pastor since July 2023.\n\nFelix is passionate about preaching God's Word, making disciples, and shepherding God's people. He believes that as people encounter Christ through the Scriptures and the life of the church, they can continue to grow in faith and become faithful followers of Jesus.\n\nOutside of ministry, Felix and his wife, Kristy, enjoy serving together, travelling, photography, reading, and discovering new places. Felix also enjoys watching YouTube and is always eager to learn and explore new ideas. He looks forward to walking alongside people as they grow in Christ and would love to meet you after a Sunday service.",
         },
         {
           name: "Agnes Fan",
@@ -287,7 +287,7 @@ export const translations = {
           name: "蕭健正",
           title: "粵語堂傳道",
           photo: "/images/felix.jpg",
-          bio: "",
+          bio: "Felix 出生於香港，成長於基督教家庭。自幼在姑姑的帶領與鼓勵下，他開始研讀聖經，參與教會生活，並在屬靈生命中不斷扎根。\n\n在大學求學期間，Felix 感受到上帝的呼召，立志透過神學裝備自己投身事奉。多年後，上帝堅定了他在牧養上的心志，特別是針對粵語群體的牧養工作。為了回應這份呼召，他決心接受神學訓練，為牧養事工做好準備。\n\n在投身全職事奉前，Felix 畢業於岩土工程碩士課程（Geotechnical Engineering），並在香港擔任了六年的工程師。隨後，他前往澳洲悉尼，於澳洲華人神學院（Chinese Theological College Australia）攻讀道學碩士學位。在加入 CABC-T 之前，他曾於香港及悉尼參與青少年事工，並在「DrEAM 戲劇事工」活躍超過十年，透過創意藝術傳揚福音並鼓勵信徒。Felix 於 2021 年 7 月以學生觀察員身分開始在 CABC-T 事奉，2022 年 8 月成為傳道同工，並於 2023 年 7 月起正式擔任全職粵語堂牧師。\n\nFelix 對講道、作主門徒及牧養神家的人充滿熱忱。他深信，當人們透過聖經和教會生活遇見基督，便能持續在信心上成長，成為忠心的主門徒。\n\n在事奉之餘，Felix 與妻子 Kristy 喜歡一同參與事奉、旅遊、攝影、閱讀，以及探索新事物。Felix 也喜歡觀看 YouTube，對學習和探索新概念總是充滿興趣。他期待在大家靈命成長的道路上與大家同行，並很樂意在主日崇拜後與您見面交流。",
         },
         {
           name: "潘雅思",
@@ -450,7 +450,7 @@ export const translations = {
           name: "萧健正",
           title: "粤语堂传道",
           photo: "/images/felix.jpg",
-          bio: "",
+          bio: "Felix 出生于香港，成长于基督教家庭。自幼在姑姑的带领与鼓励下，他开始研读圣经，参与教会生活，并在属灵生命中不断扎根。\n\n在大学求学期间，Felix 感受到上帝的呼召，立志透过神学装备自己投身事奉。多年后，上帝坚定了他在牧养上的心志，特别是针对粤语群体的牧养工作。为了回应这份呼召，他决心接受神学训练，为牧养事工做好准备。\n\n在投身全职事奉前，Felix 毕业于岩土工程硕士课程（Geotechnical Engineering），并在香港担任了六年的工程师。随后，他前往澳洲悉尼，于澳洲华人神学院（Chinese Theological College Australia）攻读道学硕士学位。在加入 CABC-T 之前，他曾于香港及悉尼参与青少年事工，并在「DrEAM 戏剧事工」活跃超过十年，透过创意艺术传扬福音并鼓励信徒。 Felix 于 2021 年 7 月以学生观察员身分开始在 CABC-T 事奉，2022 年 8 月成为传道同工，并于 2023 年 7 月起正式担任全职粤语堂牧师。\n\nFelix 对讲道、作主门徒及牧养神家的人充满热忱。他深信，当人们透过圣经和教会生活遇见基督，便能持续在信心上成长，成为忠心的主门徒。\n\n在事奉之余，Felix 与妻子 Kristy 喜欢一同参与事奉、旅游、摄影、阅读，以及探索新事物。 Felix 也喜欢观看 YouTube，对学习和探索新概念总是充满兴趣。他期待在大家灵命成长的道路上与大家同行，并很乐意在主日崇拜后与您见面交流。",
         },
         {
           name: "潘雅思",
