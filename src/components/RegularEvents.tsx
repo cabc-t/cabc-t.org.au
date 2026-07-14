@@ -96,7 +96,7 @@ export function RegularEvents({ locale }: LocaleProps) {
         const { data, error } = await supabase
           .from('regular_events')
           .select(`
-            id, icon_name, tag_key,
+            id, tag_key,
             event_translations!inner (
               title, day_text, time_text, location, description, language_label, tag_label
             )
@@ -120,7 +120,6 @@ export function RegularEvents({ locale }: LocaleProps) {
 
           return {
             id: event.id,
-            icon_name: event.icon_name,
             tag_key: event.tag_key,
             // Spread the translated fields into the top level
             ...translation 
