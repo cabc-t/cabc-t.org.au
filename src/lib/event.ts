@@ -8,5 +8,4 @@ export interface EventProps {
   description: string;
   tag_key: string;
   tag_label: string;
-  icon_name: string;
 }
