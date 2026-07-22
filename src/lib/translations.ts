@@ -127,10 +127,10 @@ export const translations = {
           bio: "Felix was born in Hong Kong and grew up in a Christian family. From a young age, his aunt faithfully encouraged him to read the Bible, attend church, and deepen his relationship with God. While studying at university, Felix sensed God's call to prepare for ministry through theological training. Years later, God confirmed His calling to shepherd His Church, particularly within the Cantonese-speaking community. In response to this calling, Felix pursued theological studies to equip himself for pastoral ministry.\n\nAfter completing a Master of Geotechnical Engineering, Felix worked as an engineer in Hong Kong for six years before returning to Sydney to undertake a Master of Divinity at the Chinese Theological College Australia. Before joining CABC-T, he served in youth ministry in both Hong Kong and Sydney, and was actively involved in DrEAM Drama Ministry for more than ten years, using creative arts to share the gospel and encourage believers. Felix began serving at CABC-T as a Student Observer in July 2021, became a Ministry Worker in August 2022, and has been serving as the full-time Cantonese Pastor since July 2023.\n\nFelix is passionate about preaching God's Word, making disciples, and shepherding God's people. He believes that as people encounter Christ through the Scriptures and the life of the church, they can continue to grow in faith and become faithful followers of Jesus.\n\nOutside of ministry, Felix and his wife, Kristy, enjoy serving together, travelling, photography, reading, and discovering new places. Felix also enjoys watching YouTube and is always eager to learn and explore new ideas. He looks forward to walking alongside people as they grow in Christ and would love to meet you after a Sunday service.",
         },
         {
-          name: "Agnes Fan",
-          title: "Children Ministry Worker",
+          name: "Agnes Poon",
+          title: "Children's Ministry Worker",
           photo: "/images/agnes.jpg",
-          bio: "",
+          bio: "Agnes was born in Hong Kong. She and her family migrated to Sydney when she was a teenager. She became a follower of Jesus during her final year of high school and has been a member of CABC since it was established.\n\nAgnes is married to Raymond, and together they have three adult children, three cats, and one dog. She loves tennis, and her childhood dream was to become a tennis coach. That dream came true—briefly—before God called her to serve at CABC Thornleigh as the part-time Children's Ministry Worker in March 2022.\n\nAgnes is passionate about leading children to Christ. Her mission is to shepherd children to know God, love God, and live their lives in worship and for His glory. She has been serving in children's ministry since becoming a Christian.",
         },
         {
           name: "Kenny Tse",
@@ -293,7 +293,7 @@ export const translations = {
           name: "潘雅思",
           title: "兒童事工負責人",
           photo: "/images/agnes.jpg",
-          bio: "",
+          bio: "Agnes出生於香港，在青少年時期隨家人移民到雪梨。她在高中最後一年信主，成為耶穌基督的跟隨者，並自華澳浸信會成立以來一直是教會的會友。\n\nAgnes的丈夫是Raymond，育有三名已成年的子女，並飼養了三隻貓和一隻狗。她熱愛網球，兒時的夢想是成為一名網球教練。這個夢想曾短暫實現，直到神呼召她於2022年3月開始在華澳浸信會展信堂擔任兒童事工同工。\n\nAgnes熱心帶領兒童認識基督。她的使命是牧養孩子們認識神、愛神，並一生敬拜神、榮耀神。自信主以來，她便一直委身於兒童事工的服事。",
         },
         {
           name: "謝文健",
@@ -456,7 +456,7 @@ export const translations = {
           name: "潘雅思",
           title: "儿童事工负责人",
           photo: "/images/agnes.jpg",
-          bio: "",
+          bio: "Agnes出生于香港，在青少年时期随家人移民到雪梨。她在高中最后一年信主，成为耶稣基督的跟随者，并自华澳浸信会成立以来一直是教会的会友。\n\nAgnes 的丈夫是Raymond，育有三名已成年的子女，并饲养了三只猫和一只狗。她热爱网球，儿时的梦想是成为一名网球教练。这个梦想曾短暂实现，直到神呼召她于 2022 年 3 月开始在华澳浸信会展信堂担任儿童事工同工。\n\nAgnes热心带领儿童认识基督。她的使命是牧养孩子们认识神、爱神，并一生敬拜神、荣耀神。自信主以来，她便一直委身于儿童事工的服事。",
         },
         {
           name: "谢文健",
